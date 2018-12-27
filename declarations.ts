@@ -1,5 +1,5 @@
 
-interface Listener {
+type Listener = {
   (...values: any[]): void;
 }
 

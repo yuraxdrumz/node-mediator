@@ -27,6 +27,7 @@ class ClassBColleague extends Colleague {
     }
 }
 
+// add facade class to abstract complexity...
 (function main() {
     const emitter = new EventEmitter({ wildcard: true })
     const mediator = new ConcreteMediator(emitter);
