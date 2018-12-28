@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "ts-node ./src/index.ts"
+    "start": "ts-node ./src/index.ts",
+    "prettier": "prettier --write src/*.ts"
   },
   "keywords": [],
   "author": "",
@@ -15,6 +16,7 @@
     "eventemitter2": "^5.0.1"
   },
   "devDependencies": {
+    "prettier": "^1.15.3",
     "ts-node": "^7.0.1",
     "typescript": "^3.2.2"
   }
