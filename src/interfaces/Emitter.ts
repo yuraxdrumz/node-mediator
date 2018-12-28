@@ -1,11 +1,11 @@
 import * as Types from '../types/Listener'
 
 /*
-an emitter interface to avoid Dependency Inversion Principle(S.O.L.I.D).
+an emitter interface to adhere the Dependency Inversion Principle(S.O.L.I.D).
 High level policies(the mediator in our case) should not depend on low level details(event emitter), that is why we add an interface(a contract).
 
-without our emitter interface(bad): Colleague -> Mediator -> EventEmitter(random dependency, can be changed)
-with our emitter interface(good): Colleague -> Mediator -> Emitter(stable, non changing contract)
+without our emitter interface(bad): Colleague -> Mediator -> EventEmitter(concrete dependancy)
+with our emitter interface(good): Colleague -> Mediator -> EventEmitter(adheres to our Emitter contract) -> Emitter(interface, non changing contract)
 */
 export interface Emitter {
   on(event: string | string[], listener: Types.Listener): this
