@@ -6,19 +6,26 @@
   "scripts": {
     "test": "jest",
     "start": "ts-node index.ts",
-    "prettier": "prettier --write src/*.ts"
+    "prettier": "prettier --write **/*.ts"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "husky": {
+    "hooks": {
+      "pre-commit": "pretty-quick --staged"
+    }
+  },
   "dependencies": {
     "bluebird": "^3.5.3",
     "eventemitter2": "^5.0.1"
   },
   "devDependencies": {
     "@types/jest": "^23.3.10",
+    "husky": "^1.3.1",
     "jest": "^23.6.0",
     "prettier": "^1.15.3",
+    "pretty-quick": "^1.8.0",
     "ts-jest": "^23.10.5",
     "ts-node": "^7.0.1",
     "typescript": "^3.2.2"
