@@ -34,12 +34,6 @@ class ClassAColleague extends Colleague {
     constructor(mediator: Mediator) {
         super(mediator);
     }
-    runOnce(){
-
-    }
-    runMultiple(array){
-        
-    }
 }
 
 class ClassBColleague extends Colleague {
