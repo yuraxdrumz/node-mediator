@@ -1,7 +1,7 @@
-import * as Types from './types'
-import { Mediator } from './interfaces'
+import * as Types from '../types/Listener'
+import { Mediator } from '../interfaces/Mediator'
 
-// a colleague is an abstract class because you only need to inherit from it and not adhere to an interface of it
+// a colleague is an abstract class that you inherit from with on and emit in place
 export abstract class Colleague {
   mediator: Mediator
 

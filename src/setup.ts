@@ -1,4 +1,6 @@
-import { EventEmitter, ConcreteMediator, ClassAColleague, ClassBColleague } from './implementations'
+import { ClassAColleague, ClassBColleague } from './implementations/ExampleClasses'
+import { ConcreteMediator } from './implementations/ConcreteMediator'
+import { EventEmitter } from './implementations/EventEmitter'
 
 // facade class to abstract start complexity...
 // Here you define your desired behavior
