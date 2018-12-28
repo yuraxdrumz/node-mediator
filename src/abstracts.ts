@@ -1,6 +1,7 @@
 import * as Types from './types'
 import { Mediator } from './interfaces'
 
+// a colleague is an abstract class because you only need to inherit from it and not adhere to an interface of it
 export abstract class Colleague {
   mediator: Mediator
 

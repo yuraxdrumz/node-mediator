@@ -1,5 +1,7 @@
 import { EventEmitter, ConcreteMediator, ClassAColleague, ClassBColleague } from './implementations'
 
+// facade class to abstract start complexity...
+// Here you define your desired behavior
 export class Setup {
   run() {
     const emitter = new EventEmitter({ wildcard: true })
