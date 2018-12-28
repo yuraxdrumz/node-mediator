@@ -1,6 +1,7 @@
 import { Mediator } from '../interfaces/Mediator'
 import { Listener } from '../types/Listener'
 import { Emitter } from '../interfaces/Emitter'
+// an instance of a mediator which accepts an emitter interface implementor
 export class ConcreteMediator implements Mediator {
   emitter: Emitter
   constructor(emitter: Emitter) {
