@@ -1,15 +1,5 @@
 import { ConcreteEmitter } from '../../src/implementations/ConcreteEmitter'
-
-let randomString = (chars: string): string => {
-  let str = ''
-  let randLength = Math.floor(Math.random() * 8) + 5
-  let randomLengthArr = new Array(randLength)
-  for (let n of randomLengthArr) {
-    let randChar = Math.floor(Math.random() * chars.length)
-    str += chars[randChar]
-  }
-  return str
-}
+import { randomString } from '../../src/utils/randomString'
 
 describe('Emitter suite', (): void => {
   let instance: ConcreteEmitter
@@ -25,8 +15,8 @@ describe('Emitter suite', (): void => {
     let randomData = new Array(Math.floor(Math.random() * 10000)).map(
       (i: any): number => Math.floor(Math.random() * 100)
     )
-    let chars = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789'
-    let str = randomString(chars)
+
+    let str = randomString()
     instance.on(str, (dataArray) => {
       expect(dataArray).toEqual(randomData)
     })

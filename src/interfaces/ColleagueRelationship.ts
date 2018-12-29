@@ -1,5 +1,6 @@
-import { Colleague } from '../abstracts/Colleague'
+import { ColleagueName } from '../types/Colleague'
 import { Relationship } from '../types/Relationship'
+import { Colleague } from '../abstracts/Colleague'
 
 export interface ColleagueRelationship {
   readonly relationship: Relationship

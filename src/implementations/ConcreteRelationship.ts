@@ -1,26 +1,19 @@
 import { ColleagueRelationship } from '../interfaces/ColleagueRelationship'
+import { ColleagueName } from '../types/Colleague'
+import { Relationship } from '../types/Relationship'
 import { Colleague } from '../abstracts/Colleague'
 
 // moved all colleague relationship outside of mediator in order to follow the Common Closure Principle(put components that change often to seperate classes from those who dont)
 export class ConcreteRelationship implements ColleagueRelationship {
-  _colleagues: object = {}
-  readonly relationship = {
-    logger: {
-      on: { '*': true },
-      emit: {}
-    },
-    A: {
-      on: { start: true, finished: true },
-      emit: { start: true, finished: true }
-    }
-    // B: {
-    //   on: { start: true, finished: true },
-    //   emit: { finished: true }
-    // }
+  private _colleagues: object = {}
+  readonly relationship: Relationship
+
+  constructor(relationship: Relationship) {
+    this.relationship = relationship
   }
 
   onEventExists(colleague: Colleague, event: string) {
-    return (
+    return !!(
       this.relationship &&
       this.relationship[colleague.name] &&
       this.relationship[colleague.name].on &&
@@ -28,7 +21,7 @@ export class ConcreteRelationship implements ColleagueRelationship {
     )
   }
   emitEventExists(colleague: Colleague, event: string) {
-    return (
+    return !!(
       this.relationship &&
       this.relationship[colleague.name] &&
       this.relationship[colleague.name].emit &&
@@ -36,13 +29,13 @@ export class ConcreteRelationship implements ColleagueRelationship {
     )
   }
   register(colleague: Colleague) {
-    if (!this._colleagues[colleague.id]) {
-      this._colleagues[colleague.id] = colleague
+    if (!this._colleagues[colleague.name]) {
+      this._colleagues[colleague.name] = true
     } else {
       throw new Error(`Colleague ${colleague.name} already exists!`)
     }
   }
   checkColleagueExists(colleague: Colleague) {
-    return !!this._colleagues[colleague.id]
+    return !!this._colleagues[colleague.name]
   }
 }

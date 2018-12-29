@@ -1,13 +1,13 @@
 import * as Types from '../types/Listener'
 import { Mediator } from '../interfaces/Mediator'
 import { v4 } from 'uuid'
-import { ColleagueName } from '../types/ColleagueName'
+import { ColleagueName } from '../types/Colleague'
 
 // a colleague is an abstract class that you inherit from with on and emit in place
 export abstract class Colleague {
   private mediator: Mediator
-  readonly id: string
-  readonly name: ColleagueName
+  private readonly id: string
+  public readonly name: ColleagueName
   constructor(mediator: Mediator, name: ColleagueName) {
     this.mediator = mediator
     this.id = v4()
@@ -20,5 +20,8 @@ export abstract class Colleague {
 
   on(event: string, cb: Types.Listener): void {
     this.mediator.on(this, event, cb)
+  }
+  register() {
+    this.mediator.register(this)
   }
 }
