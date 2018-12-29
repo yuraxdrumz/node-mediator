@@ -1,10 +1,10 @@
 import * as Types from '../types/Listener'
-import { Emitter } from './Emitter'
-import { Colleague } from '../abstracts/Colleague'
-import { ColleagueRelationship } from './ColleagueRelationship'
+import Emitter from './Emitter'
+import Colleague from '../abstracts/Colleague'
+import ColleagueRelationship from './ColleagueRelationship'
 
 // a mediator interface(a contract with the emitter interface)
-export interface Mediator {
+export default interface Mediator {
   emitter: Emitter
   relationship: ColleagueRelationship
   emit(colleague: Colleague, event: string, ...args: any[]): void

@@ -1,10 +1,10 @@
 import * as Types from '../types/Listener'
-import { Mediator } from '../interfaces/Mediator'
+import Mediator from '../interfaces/Mediator'
 import { v4 } from 'uuid'
 import { ColleagueName } from '../types/Colleague'
 
 // a colleague is an abstract class that you inherit from with on and emit in place
-export abstract class Colleague {
+export default abstract class Colleague {
   private mediator: Mediator
   private readonly id: string
   public readonly name: ColleagueName

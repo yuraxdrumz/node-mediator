@@ -1,4 +1,4 @@
-import { ConcreteEmitter } from '../../src/implementations/ConcreteEmitter'
+import ConcreteEmitter from '../../src/implementations/ConcreteEmitter'
 import { randomString } from '../../src/utils/randomString'
 
 describe('Emitter suite', (): void => {

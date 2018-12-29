@@ -1,10 +1,10 @@
-import { Mediator } from '../interfaces/Mediator'
+import Mediator from '../interfaces/Mediator'
 import { Listener } from '../types/Listener'
-import { Emitter } from '../interfaces/Emitter'
-import { Colleague } from '../abstracts/Colleague'
-import { ColleagueRelationship } from '../interfaces/ColleagueRelationship'
+import Emitter from '../interfaces/Emitter'
+import Colleague from '../abstracts/Colleague'
+import ColleagueRelationship from '../interfaces/ColleagueRelationship'
 // an instance of a mediator which accepts an emitter interface implementor
-export class ConcreteMediator implements Mediator {
+export default class ConcreteMediator implements Mediator {
   emitter: Emitter
   relationship: ColleagueRelationship
   constructor(emitter: Emitter, relationship: ColleagueRelationship) {

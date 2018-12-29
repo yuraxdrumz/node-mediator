@@ -1,8 +1,8 @@
 import { ColleagueName } from '../types/Colleague'
 import { Relationship } from '../types/Relationship'
-import { Colleague } from '../abstracts/Colleague'
+import Colleague from '../abstracts/Colleague'
 
-export interface ColleagueRelationship {
+export default interface ColleagueRelationship {
   readonly relationship: Relationship
   onEventExists(colleague: Colleague, event: string): boolean
   emitEventExists(colleague: Colleague, event: string): boolean

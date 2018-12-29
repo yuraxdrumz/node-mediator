@@ -1,6 +1,6 @@
 import { Relationship } from '../types/Relationship'
 
-export const relationship: Relationship = {
+const relationship: Relationship = {
   logger: {
     on: { '*': true },
     emit: {}
@@ -14,3 +14,5 @@ export const relationship: Relationship = {
   //   emit: { finished: true }
   // }
 }
+
+export default relationship

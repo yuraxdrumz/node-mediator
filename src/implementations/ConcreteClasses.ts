@@ -1,4 +1,4 @@
-import { Colleague } from '../abstracts/Colleague'
+import Colleague from '../abstracts/Colleague'
 
 // here are a few example classes that extend the Colleague abstract class to inherit on and emit.
 class Logger extends Colleague {

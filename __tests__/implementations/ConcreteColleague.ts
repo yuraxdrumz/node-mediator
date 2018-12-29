@@ -1,15 +1,15 @@
-import { relationship } from '../../src/defaults/Relationship'
-import { ConcreteEmitter } from '../../src/implementations/ConcreteEmitter'
-import { ConcreteMediator } from '../../src/implementations/ConcreteMediator'
-import { ConcreteRelationship } from '../../src/implementations/ConcreteRelationship'
-import { Emitter } from '../../src/interfaces/Emitter'
-import { Mediator } from '../../src/interfaces/Mediator'
-import { ColleagueRelationship } from '../../src/interfaces/ColleagueRelationship'
-import { Colleague } from '../../src/abstracts/Colleague'
+import relationship from '../../src/defaults/Relationship'
+import ConcreteEmitter from '../../src/implementations/ConcreteEmitter'
+import ConcreteMediator from '../../src/implementations/ConcreteMediator'
+import ConcreteRelationship from '../../src/implementations/ConcreteRelationship'
+import Emitter from '../../src/interfaces/Emitter'
+import Mediator from '../../src/interfaces/Mediator'
+import ColleagueRelationship from '../../src/interfaces/ColleagueRelationship'
+import Colleague from '../../src/abstracts/Colleague'
 import { randomString } from '../../src/utils/randomString'
 
 describe('Colleague suite', () => {
-  class ConcreteCollege extends Colleague {}
+  class ConcreteColleague extends Colleague {}
   let instance: Mediator
   let emitter: Emitter
   let colRelationship: ColleagueRelationship
@@ -18,7 +18,7 @@ describe('Colleague suite', () => {
     emitter = new ConcreteEmitter({ wildcard: true })
     colRelationship = new ConcreteRelationship(relationship)
     instance = new ConcreteMediator(emitter, colRelationship)
-    col = new ConcreteCollege(instance, randomString())
+    col = new ConcreteColleague(instance, randomString())
   })
   it('should create new instance of a colleague', (): void => {
     expect.assertions(1)

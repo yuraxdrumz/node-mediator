@@ -1,8 +1,8 @@
 import { Logger, A } from './implementations/ConcreteClasses'
-import { ConcreteMediator } from './implementations/ConcreteMediator'
-import { ConcreteEmitter } from './implementations/ConcreteEmitter'
-import { ConcreteRelationship } from './implementations/ConcreteRelationship'
-import { relationship } from './defaults/Relationship'
+import ConcreteMediator from './implementations/ConcreteMediator'
+import ConcreteEmitter from './implementations/ConcreteEmitter'
+import ConcreteRelationship from './implementations/ConcreteRelationship'
+import relationship from './defaults/Relationship'
 // facade class to abstract start complexity...
 // Here you define your desired behavior
 export class Setup {

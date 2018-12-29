@@ -1,10 +1,10 @@
-import { ColleagueRelationship } from '../interfaces/ColleagueRelationship'
+import ColleagueRelationship from '../interfaces/ColleagueRelationship'
 import { ColleagueName } from '../types/Colleague'
 import { Relationship } from '../types/Relationship'
-import { Colleague } from '../abstracts/Colleague'
+import Colleague from '../abstracts/Colleague'
 
 // moved all colleague relationship outside of mediator in order to follow the Common Closure Principle(put components that change often to seperate classes from those who dont)
-export class ConcreteRelationship implements ColleagueRelationship {
+export default class ConcreteRelationship implements ColleagueRelationship {
   private _colleagues: object = {}
   readonly relationship: Relationship
 
