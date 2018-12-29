@@ -1,4 +1,4 @@
-import { EventEmitter } from '../../src/implementations/EventEmitter'
+import { ConcreteEmitter } from '../../src/implementations/ConcreteEmitter'
 
 let randomString = (chars: string): string => {
   let str = ''
@@ -12,13 +12,13 @@ let randomString = (chars: string): string => {
 }
 
 describe('Emitter suite', (): void => {
-  let instance: EventEmitter
+  let instance: ConcreteEmitter
   beforeEach(() => {
-    instance = new EventEmitter({})
+    instance = new ConcreteEmitter({})
   })
   it('should create new instance of event emitter', (): void => {
     expect.assertions(1)
-    expect(instance).toBeInstanceOf(EventEmitter)
+    expect(instance).toBeInstanceOf(ConcreteEmitter)
   })
   it('should subscribe to a random event and fire that event with a random array', (): void => {
     expect.assertions(1)
