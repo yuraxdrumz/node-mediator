@@ -1,8 +1,8 @@
 {
-  "name": "oven_v2",
+  "name": "mediator",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "index.ts",
   "scripts": {
     "test": "jest",
     "start": "ts-node index.ts",
