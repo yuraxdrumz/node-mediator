@@ -1,4 +1,4 @@
-import { Logger, A } from './implementations/ConcreteClasses'
+import { Logger, Timer } from './implementations/ConcreteClasses'
 import ConcreteMediator from './implementations/ConcreteMediator'
 import ConcreteEmitter from './implementations/ConcreteEmitter'
 import ConcreteRelationship from './implementations/ConcreteRelationship'
@@ -9,24 +9,23 @@ export class Setup {
   run() {
     // create an emitter instance that adheres to Emitter interface
     const emitter = new ConcreteEmitter({ wildcard: true })
+    // create relationship with option to pass relationship object type
     const colleagueRelationship = new ConcreteRelationship(relationship)
-    // pass emitter to mediator
+    // pass emitter and relationship manager to mediator
     const mediator = new ConcreteMediator(emitter, colleagueRelationship)
-    // pass mediator and name to colleague
-
-    const a = new A(mediator, 'A')
+    // pass mediator and name to colleagues
+    const timer = new Timer(mediator, 'timer')
     const logger = new Logger(mediator, 'logger')
-
-    a.register()
+    // register colleagues
+    timer.register()
     logger.register()
-
     // define sequence of events. Only events defined in mediator relationshipMap will be allowed
     // All unregistered colleagues and non existing events in realationshipMap will be ignored
+    timer.on('*', timer.time)
     logger.on('*', logger.log)
-    // test will be ignored as it is not in the relationship map
-    a.emit('test', 'blaaa')
-    // start and finished will be logged to logger.log
-    a.emit('start', 'yessss')
-    a.emit('finished', 'finishhhhhh')
+    timer.emit('start', 'start!')
+    setTimeout(() => {
+      timer.emit('test', 'test!')
+    }, 1000)
   }
 }

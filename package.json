@@ -17,6 +17,7 @@
     }
   },
   "dependencies": {
+    "@types/node": "^10.12.18",
     "eventemitter2": "^5.0.1"
   },
   "devDependencies": {

@@ -6,7 +6,7 @@ import Emitter from '../../src/interfaces/Emitter'
 import Mediator from '../../src/interfaces/Mediator'
 import ColleagueRelationship from '../../src/interfaces/ColleagueRelationship'
 import Colleague from '../../src/abstracts/Colleague'
-import { randomString } from '../../src/utils/randomString'
+import randomString from '../../src/utils/randomString'
 
 describe('Colleague suite', () => {
   class ConcreteColleague extends Colleague {}

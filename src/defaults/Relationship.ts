@@ -5,9 +5,9 @@ const relationship: Relationship = {
     on: { '*': true },
     emit: {}
   },
-  A: {
-    on: { start: true, finished: true },
-    emit: { start: true, finished: true }
+  timer: {
+    on: { '*': true },
+    emit: { start: true, test: true }
   }
   // B: {
   //   on: { start: true, finished: true },

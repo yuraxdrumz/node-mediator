@@ -1,5 +1,5 @@
 import ConcreteRelationship from '../../src/implementations/ConcreteRelationship'
-import { randomString } from '../../src/utils/randomString'
+import randomString from '../../src/utils/randomString'
 import { ColleagueName } from '../../src/types/Colleague'
 
 describe('Relationship suite', (): void => {
