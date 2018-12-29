@@ -5,21 +5,35 @@ import { Colleague } from '../abstracts/Colleague'
 export class ConcreteRelationship implements ColleagueRelationship {
   _colleagues: object = {}
   readonly relationship = {
+    logger: {
+      on: { '*': true },
+      emit: {}
+    },
     A: {
       on: { start: true, finished: true },
       emit: { start: true, finished: true }
-    },
-    B: {
-      on: { start: true, finished: true },
-      emit: { finished: true }
     }
+    // B: {
+    //   on: { start: true, finished: true },
+    //   emit: { finished: true }
+    // }
   }
 
   onEventExists(colleague: Colleague, event: string) {
-    return this.relationship[colleague.name].on[event]
+    return (
+      this.relationship &&
+      this.relationship[colleague.name] &&
+      this.relationship[colleague.name].on &&
+      this.relationship[colleague.name].on[event]
+    )
   }
   emitEventExists(colleague: Colleague, event: string) {
-    return this.relationship[colleague.name].emit[event]
+    return (
+      this.relationship &&
+      this.relationship[colleague.name] &&
+      this.relationship[colleague.name].emit &&
+      this.relationship[colleague.name].emit[event]
+    )
   }
   register(colleague: Colleague) {
     if (!this._colleagues[colleague.id]) {
