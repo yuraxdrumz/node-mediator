@@ -16,8 +16,10 @@
     "resolveJsonModule": true,
     "sourceMap": true,
     "strict": true,
-    "target": "es2016",
+    "target": "es5",
     "baseUrl": ".",
+    "experimentalDecorators": true /* Enables experimental support for ES7 decorators. */,
+    "emitDecoratorMetadata": true,
     "paths": {
       "*": ["node_modules/*"]
     },

@@ -17,6 +17,12 @@ export default class ConcreteMediator implements Mediator {
       this.relationship.onEventExists(colleague, event)
     ) {
       this.emitter.on(event, cb)
+    } else {
+      throw new Error(
+        `.on event of type: ${event} for Colleague: ${
+          colleague.name
+        } is not allowed, please check relationship map...`
+      )
     }
   }
   emit(colleague: Colleague, event: string, ...args: any[]): void {
@@ -25,6 +31,12 @@ export default class ConcreteMediator implements Mediator {
       this.relationship.emitEventExists(colleague, event)
     ) {
       this.emitter.emit(event, ...args)
+    } else {
+      throw new Error(
+        `.emit event of type: ${event} for Colleague: ${
+          colleague.name
+        } is not allowed, please check relationship map...`
+      )
     }
   }
   register(colleague: Colleague) {

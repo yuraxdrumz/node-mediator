@@ -24,6 +24,7 @@ export class Setup {
     timer.on('*', timer.time)
     logger.on('*', logger.log)
     timer.emit('start', 'start!')
+    timer.emit('tessss')
     setTimeout(() => {
       timer.emit('test', 'test!')
     }, 1000)

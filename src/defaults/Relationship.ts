@@ -9,10 +9,6 @@ const relationship: Relationship = {
     on: { '*': true },
     emit: { start: true, test: true }
   }
-  // B: {
-  //   on: { start: true, finished: true },
-  //   emit: { finished: true }
-  // }
 }
 
 export default relationship
