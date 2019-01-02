@@ -23,7 +23,7 @@ class Timer extends Colleague {
     var elapsed = process.hrtime(this.start)[1] / 1000000 // divide by a million to get nano to milli
     console.log(
       `TIMER: `,
-      process.hrtime(this.start)[0] + 's, ' + elapsed.toFixed(this.precision) + 'ms - '
+      process.hrtime(this.start)[0] + 's, ' + elapsed.toFixed(this.precision) + 'ms'
     ) // print message + time
     this.start = process.hrtime() // reset the timer
   }

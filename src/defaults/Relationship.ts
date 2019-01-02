@@ -2,16 +2,19 @@ import { Relationship } from '../types/Relationship'
 
 const relationship: Relationship = {
   logger: {
-    on: { '*': true },
-    emit: {}
+    on: { 'logger::*': true },
+    emit: {
+      'logger::start': true,
+      'logger::end': true
+    }
   },
   timer: {
-    on: { '*': true },
-    emit: { start: true, test: true }
+    on: { 'timer::*': true },
+    emit: { 'timer::start': true, 'timer::test': true }
   },
   'promise-tester': {
-    on: { test: true },
-    emit: { test: true }
+    on: { 'promise-tester::test': true },
+    emit: { 'promise-tester::test': true }
   }
 }
 

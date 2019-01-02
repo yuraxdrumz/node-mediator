@@ -23,10 +23,12 @@ export class Setup {
     pTester.register()
     // define sequence of events. Only events defined in mediator relationshipMap will be allowed
     // All unregistered colleagues and non existing events in realationshipMap will be ignored
-    timer.on('*', timer.time)
-    logger.on('*', logger.log)
-    pTester.on('test', pTester.test)
-    await pTester.emitAsync('test')
-    timer.emit('start', 'start!')
+    timer.on('timer::*', timer.time)
+    logger.on('logger::*', logger.log)
+    pTester.on('promise-tester::test', pTester.test)
+    logger.emit('logger::start', 'starting emit async')
+    await pTester.emitAsync('promise-tester::test')
+    logger.emit('logger::end', 'finished emit async')
+    timer.emit('timer::start', 'start!')
   }
 }
