@@ -20,11 +20,11 @@ describe('Relationship suite', (): void => {
     expect.assertions(1)
     expect(instance).toBeInstanceOf(ConcreteRelationship)
   })
-  //   it('should return true if a colleagueName was registered to the relationshipMap', ()=>{
-  //       expect.assertions(1)
-  //       instance.register(colleagueName)
-  //       expect(instance.checkColleagueExists(colleagueName)).toBe(true)
-  //   })
+  // it('should return true if a colleagueName was registered to the relationshipMap', ()=>{
+  //     expect.assertions(1)
+  //     instance.register(colleagueName)
+  //     expect(instance.checkColleagueExists(colleagueName)).toBe(true)
+  // })
   //   it('should return false if colleagueName was not registered to the relationshipMap', ()=>{
   //     expect.assertions(1)
   //     expect(instance.checkColleagueExists(colleagueName)).toBe(false)

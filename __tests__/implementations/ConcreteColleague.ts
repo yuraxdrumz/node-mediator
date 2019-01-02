@@ -18,7 +18,7 @@ describe('Colleague suite', () => {
     emitter = new ConcreteEmitter({ wildcard: true })
     colRelationship = new ConcreteRelationship(relationship)
     instance = new ConcreteMediator(emitter, colRelationship)
-    col = new ConcreteColleague(instance, randomString())
+    col = new ConcreteColleague(randomString(), instance)
   })
   it('should create new instance of a colleague', (): void => {
     expect.assertions(1)

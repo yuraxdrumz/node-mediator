@@ -8,6 +8,14 @@ class Logger extends Colleague {
   }
 }
 
+class PromiseTester extends Colleague {
+  test() {
+    return new Promise((resolve) => {
+      setTimeout(() => resolve('cooool!'), 3000)
+    })
+  }
+}
+
 class Timer extends Colleague {
   private start: [number, number] = process.hrtime()
   private precision: number = 5
@@ -21,4 +29,4 @@ class Timer extends Colleague {
   }
 }
 
-export { Logger, Timer }
+export { Logger, Timer, PromiseTester }

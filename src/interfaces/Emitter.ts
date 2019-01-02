@@ -10,4 +10,5 @@ with our emitter interface(good): Colleague -> Mediator -> EventEmitter(adheres 
 export default interface Emitter {
   on(event: string | string[], listener: Types.Listener): this
   emit(event: string | string[], ...values: any[]): boolean
+  emitAsync(event: string | string[], ...values: any[]): Promise<any>
 }

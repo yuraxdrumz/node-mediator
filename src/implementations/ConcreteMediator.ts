@@ -25,12 +25,26 @@ export default class ConcreteMediator implements Mediator {
       )
     }
   }
-  emit(colleague: Colleague, event: string, ...args: any[]): void {
+  emitAsync(colleague: Colleague, event: string, ...args: any[]): Promise<any> {
     if (
       this.relationship.checkColleagueExists(colleague) &&
       this.relationship.emitEventExists(colleague, event)
     ) {
-      this.emitter.emit(event, ...args)
+      return this.emitter.emitAsync(event, ...args)
+    } else {
+      throw new Error(
+        `.emit event of type: ${event} for Colleague: ${
+          colleague.name
+        } is not allowed, please check relationship map...`
+      )
+    }
+  }
+  emit(colleague: Colleague, event: string, ...args: any[]): boolean {
+    if (
+      this.relationship.checkColleagueExists(colleague) &&
+      this.relationship.emitEventExists(colleague, event)
+    ) {
+      return this.emitter.emit(event, ...args)
     } else {
       throw new Error(
         `.emit event of type: ${event} for Colleague: ${

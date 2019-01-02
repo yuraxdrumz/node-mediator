@@ -8,6 +8,10 @@ const relationship: Relationship = {
   timer: {
     on: { '*': true },
     emit: { start: true, test: true }
+  },
+  'promise-tester': {
+    on: { test: true },
+    emit: { test: true }
   }
 }
 
