@@ -1,27 +1,21 @@
 import * as Types from '../types/Listener'
 import Mediator from '../interfaces/Mediator'
-import v4 from 'uuid/v4'
 import { ColleagueName } from '../types/Colleague'
 
-// a colleague is an abstract class that you inherit from with on and emit in place
 export default abstract class Colleague {
   private mediator: Mediator
-  private readonly id: string
   public readonly name: ColleagueName
   constructor(name: ColleagueName, mediator: Mediator) {
     this.mediator = mediator
-    this.id = v4()
     this.name = name
   }
   emit(event: string, ...args: any[]): void {
     this.mediator.emit(this, event, ...args)
   }
-
   emitAsync(event: string, ...args: any[]): Promise<any> {
     return this.mediator.emitAsync(this, event, ...args)
   }
-
-  on(event: string, cb: Types.Listener): void {
+  on(event: string, cb: Types.Listener): Promise<any> | void {
     this.mediator.on(this, event, cb)
   }
   register() {

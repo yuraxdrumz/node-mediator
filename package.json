@@ -1,17 +1,33 @@
 {
-  "name": "mediator",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.ts",
+  "name": "node-mediator",
+  "version": "1.0.1",
+  "description": "A Node.js event based mediator design pattern written in typescript with eventemitter2. It Allows building seperate, decoupled, more testable modules in a breeze.",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "scripts": {
     "test": "jest",
+    "start:example": "ts-node --files ./examples/example-init.ts",
     "start": "ts-node --files index.ts",
-    "build": "rimraf ./dist && tsc --p tsconfig.json",
-    "prettier": "prettier --write **/*.ts && prettier --write __tests__/**/*.ts"
+    "dist": "rimraf ./dist && tsc --p tsconfig.json",
+    "prettier": "prettier --write **/*.ts && prettier --write __tests__/**/*.ts",
+    "docs": "./node_modules/.bin/typedoc --out docs --mode modules ./src",
+    "serve": "http-server ./docs"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yuraxdrumz/node-typescript-starter"
+  },
+  "keywords": [
+    "nodejs",
+    "event",
+    "emitter",
+    "mediator",
+    "typescript",
+    "design",
+    "pattern"
+  ],
+  "author": "Yuri Khomyakov",
+  "license": "MIT",
   "husky": {
     "hooks": {
       "pre-commit": "pretty-quick --staged && npm t"
@@ -23,13 +39,16 @@
   "devDependencies": {
     "@types/jest": "^23.3.10",
     "@types/node": "^10.12.18",
+    "http-server": "^0.11.1",
     "husky": "^1.3.1",
     "jest": "^23.6.0",
+    "jsdoc": "^3.5.5",
     "prettier": "^1.15.3",
     "pretty-quick": "^1.8.0",
     "rimraf": "^2.6.2",
     "ts-jest": "^23.10.5",
     "ts-node": "^7.0.1",
+    "typedoc": "^0.14.0",
     "typescript": "^3.2.2"
   }
 }

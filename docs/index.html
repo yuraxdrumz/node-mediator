@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html class="default no-js">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>node-mediator</title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="assets/css/main.css" />
+  </head>
+  <body>
+    <header>
+      <div class="tsd-page-toolbar">
+        <div class="container">
+          <div class="table-wrap">
+            <div class="table-cell" id="tsd-search" data-index="assets/js/search.js" data-base=".">
+              <div class="field">
+                <label for="tsd-search-field" class="tsd-widget search no-caption">Search</label>
+                <input id="tsd-search-field" type="text" />
+              </div>
+              <ul class="results">
+                <li class="state loading">Preparing search index...</li>
+                <li class="state failure">The search index is not available</li>
+              </ul>
+              <a href="index.html" class="title">node-mediator</a>
+            </div>
+            <div class="table-cell" id="tsd-widgets">
+              <div id="tsd-filter">
+                <a href="#" class="tsd-widget options no-caption" data-toggle="options">Options</a>
+                <div class="tsd-filter-group">
+                  <div class="tsd-select" id="tsd-filter-visibility">
+                    <span class="tsd-select-label">All</span>
+                    <ul class="tsd-select-list">
+                      <li data-value="public">Public</li>
+                      <li data-value="protected">Public/Protected</li>
+                      <li data-value="private" class="selected">All</li>
+                    </ul>
+                  </div>
+                  <input type="checkbox" id="tsd-filter-inherited" checked />
+                  <label class="tsd-widget" for="tsd-filter-inherited">Inherited</label>
+                  <input type="checkbox" id="tsd-filter-externals" checked />
+                  <label class="tsd-widget" for="tsd-filter-externals">Externals</label>
+                  <input type="checkbox" id="tsd-filter-only-exported" />
+                  <label class="tsd-widget" for="tsd-filter-only-exported">Only exported</label>
+                </div>
+              </div>
+              <a href="#" class="tsd-widget menu no-caption" data-toggle="menu">Menu</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="tsd-page-title">
+        <div class="container">
+          <ul class="tsd-breadcrumb">
+            <li><a href="globals.html">Globals</a></li>
+          </ul>
+          <h1>node-mediator</h1>
+        </div>
+      </div>
+    </header>
+    <div class="container container-main">
+      <div class="row">
+        <div class="col-8 col-content">
+          <div class="tsd-panel tsd-typography">
+            <h1 id="node-mediator">node-mediator</h1>
+            <p>
+              node-mediator implements the mediator design pattern with events. It supports creating
+              decoupled components(called colleagues) which all interact through one
+              component(called mediator) through events. If you have large projects with a lot of
+              dependencies between them, this is the library for you.
+            </p>
+            <p>Why should you use this library?</p>
+            <ul>
+              <li>
+                Decoupled components that interact with events which leads to more testable and
+                stable components
+              </li>
+              <li>
+                Easier to follow the S.O.L.I.D principles as you have fewer intercomponent
+                dependencies and a better view of the hierarchy of your components
+              </li>
+            </ul>
+            <h3 id="installation">Installation</h3>
+            <p>Install the dependencies</p>
+            <pre><code class="language-sh">npm install node-mediator -S
+or
+yarn add node-mediator</code></pre>
+            <h3 id="usage">Usage</h3>
+            <pre><code class="language-js"><span class="hljs-keyword">import</span> { NodeMediator, Colleague, RelationsMap } <span class="hljs-keyword">from</span> <span class="hljs-string">'./dist'</span>
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Tester</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Colleague</span> </span>{
+  test() {
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'test emitted!'</span>)
+  }
+}
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Logger</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Colleague</span> </span>{
+  log(...args) {
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'logger'</span>, ...args)
+  }
+}
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Main</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">NodeMediator</span> </span>{
+  <span class="hljs-keyword">constructor</span>(relations: RelationsMap) {
+    <span class="hljs-keyword">super</span>(relations)
+  }
+  run() {
+    <span class="hljs-comment">// add the components</span>
+    <span class="hljs-keyword">let</span> tester = <span class="hljs-keyword">new</span> Tester(<span class="hljs-string">'tester'</span>, <span class="hljs-keyword">this</span>.mediator)
+    <span class="hljs-keyword">let</span> logger = <span class="hljs-keyword">new</span> Logger(<span class="hljs-string">'logger'</span>, <span class="hljs-keyword">this</span>.mediator)
+
+    <span class="hljs-comment">// register them. If you want to test something without a specific component just comment it out, otherwise you have to register the compoennt to use it.</span>
+    tester.register()
+    logger.register()
+
+    <span class="hljs-comment">// defined events. Only events defined in relationsMap will be allowed!</span>
+    logger.on(<span class="hljs-string">'**'</span>, logger.log)
+    tester.on(<span class="hljs-string">'tester::test'</span>, tester.test)
+
+    <span class="hljs-comment">// example emit</span>
+    setTimeout(<span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> {
+      tester.emit(<span class="hljs-string">'tester::test'</span>)
+    }, <span class="hljs-number">3000</span>)
+  }
+}
+
+<span class="hljs-comment">/*
+here is the relationsMap, we will define allowed on and emit events
+if you want to disable an event, change it to false. Events .on support wildcards and seperates events by delimiter ::
+if you have a component named `uploader` and you want to add a start event to it when it is called and emit a finish event when its done, do this:
+const exampleRelations: RelationsMap = {
+    uploader: {
+        on: {'uploader::start': true},
+        emit: {'uploader::finish': true}
+    },
+}
+
+The reason you have to give full namespaces is because all components can talk to each other if you defined so in you map, for example:
+const exampleRelations: RelationsMap = {
+    uploader: {
+        on: {'uploader::start': true},
+        emit: {'uploader::finish': true}
+    },
+    // this will also fire on upload start event and do its thing.
+    scanner: {
+        on: {'uploader::start': true},
+        emit: {}
+    }
+}
+
+ */</span>
+<span class="hljs-keyword">const</span> myRelations: RelationsMap = {
+  <span class="hljs-attr">tester</span>: {
+    <span class="hljs-attr">on</span>: { <span class="hljs-string">'tester::test'</span>: <span class="hljs-literal">true</span> },
+    <span class="hljs-attr">emit</span>: { <span class="hljs-string">'tester::test'</span>: <span class="hljs-literal">true</span> }
+  },
+  <span class="hljs-attr">logger</span>: {
+    <span class="hljs-attr">on</span>: { <span class="hljs-string">'**'</span>: <span class="hljs-literal">true</span> },
+    <span class="hljs-attr">emit</span>: {}
+  }
+}
+
+<span class="hljs-keyword">new</span> Main(myRelations).run()</code></pre>
+            <h2 id="license">License</h2>
+            <p>MIT</p>
+          </div>
+        </div>
+        <div class="col-4 col-menu menu-sticky-wrap menu-highlight">
+          <nav class="tsd-navigation primary">
+            <ul>
+              <li class="globals  ">
+                <a href="globals.html"><em>Globals</em></a>
+              </li>
+              <li class=" tsd-kind-external-module">
+                <a href="modules/_abstracts_colleague_.html">"abstracts/<wbr />Colleague"</a>
+              </li>
+              <li class=" tsd-kind-external-module">
+                <a href="modules/_defaults_relations_.html">"defaults/<wbr />Relations"</a>
+              </li>
+              <li class=" tsd-kind-external-module">
+                <a href="modules/_implementations_concreteemitter_.html"
+                  >"implementations/<wbr />Concrete<wbr />Emitter"</a
+                >
+              </li>
+              <li class=" tsd-kind-external-module">
+                <a href="modules/_implementations_concretemediator_.html"
+                  >"implementations/<wbr />Concrete<wbr />Mediator"</a
+                >
+              </li>
+              <li class=" tsd-kind-external-module">
+                <a href="modules/_interfaces_emitter_.html">"interfaces/<wbr />Emitter"</a>
+              </li>
+              <li class=" tsd-kind-external-module">
+                <a href="modules/_interfaces_mediator_.html">"interfaces/<wbr />Mediator"</a>
+              </li>
+              <li class=" tsd-kind-external-module">
+                <a href="modules/_types_colleague_.html">"types/<wbr />Colleague"</a>
+              </li>
+              <li class=" tsd-kind-external-module">
+                <a href="modules/_types_eventboolean_.html">"types/<wbr />Event<wbr />Boolean"</a>
+              </li>
+              <li class=" tsd-kind-external-module">
+                <a href="modules/_types_listener_.html">"types/<wbr />Listener"</a>
+              </li>
+              <li class=" tsd-kind-external-module">
+                <a href="modules/_types_relations_.html">"types/<wbr />Relations"</a>
+              </li>
+              <li class=" tsd-kind-external-module">
+                <a href="modules/_utils_randomstring_.html">"utils/random<wbr />String"</a>
+              </li>
+            </ul>
+          </nav>
+          <nav class="tsd-navigation secondary menu-sticky"><ul class="before-current"></ul></nav>
+        </div>
+      </div>
+    </div>
+    <footer class="with-border-bottom">
+      <div class="container">
+        <h2>Legend</h2>
+        <div class="tsd-legend-group">
+          <ul class="tsd-legend">
+            <li class="tsd-kind-module"><span class="tsd-kind-icon">Module</span></li>
+            <li class="tsd-kind-object-literal">
+              <span class="tsd-kind-icon">Object literal</span>
+            </li>
+            <li class="tsd-kind-variable"><span class="tsd-kind-icon">Variable</span></li>
+            <li class="tsd-kind-function"><span class="tsd-kind-icon">Function</span></li>
+            <li class="tsd-kind-function tsd-has-type-parameter">
+              <span class="tsd-kind-icon">Function with type parameter</span>
+            </li>
+            <li class="tsd-kind-index-signature">
+              <span class="tsd-kind-icon">Index signature</span>
+            </li>
+            <li class="tsd-kind-type-alias"><span class="tsd-kind-icon">Type alias</span></li>
+          </ul>
+          <ul class="tsd-legend">
+            <li class="tsd-kind-enum"><span class="tsd-kind-icon">Enumeration</span></li>
+            <li class="tsd-kind-enum-member">
+              <span class="tsd-kind-icon">Enumeration member</span>
+            </li>
+            <li class="tsd-kind-property tsd-parent-kind-enum">
+              <span class="tsd-kind-icon">Property</span>
+            </li>
+            <li class="tsd-kind-method tsd-parent-kind-enum">
+              <span class="tsd-kind-icon">Method</span>
+            </li>
+          </ul>
+          <ul class="tsd-legend">
+            <li class="tsd-kind-interface"><span class="tsd-kind-icon">Interface</span></li>
+            <li class="tsd-kind-interface tsd-has-type-parameter">
+              <span class="tsd-kind-icon">Interface with type parameter</span>
+            </li>
+            <li class="tsd-kind-constructor tsd-parent-kind-interface">
+              <span class="tsd-kind-icon">Constructor</span>
+            </li>
+            <li class="tsd-kind-property tsd-parent-kind-interface">
+              <span class="tsd-kind-icon">Property</span>
+            </li>
+            <li class="tsd-kind-method tsd-parent-kind-interface">
+              <span class="tsd-kind-icon">Method</span>
+            </li>
+            <li class="tsd-kind-index-signature tsd-parent-kind-interface">
+              <span class="tsd-kind-icon">Index signature</span>
+            </li>
+          </ul>
+          <ul class="tsd-legend">
+            <li class="tsd-kind-class"><span class="tsd-kind-icon">Class</span></li>
+            <li class="tsd-kind-class tsd-has-type-parameter">
+              <span class="tsd-kind-icon">Class with type parameter</span>
+            </li>
+            <li class="tsd-kind-constructor tsd-parent-kind-class">
+              <span class="tsd-kind-icon">Constructor</span>
+            </li>
+            <li class="tsd-kind-property tsd-parent-kind-class">
+              <span class="tsd-kind-icon">Property</span>
+            </li>
+            <li class="tsd-kind-method tsd-parent-kind-class">
+              <span class="tsd-kind-icon">Method</span>
+            </li>
+            <li class="tsd-kind-accessor tsd-parent-kind-class">
+              <span class="tsd-kind-icon">Accessor</span>
+            </li>
+            <li class="tsd-kind-index-signature tsd-parent-kind-class">
+              <span class="tsd-kind-icon">Index signature</span>
+            </li>
+          </ul>
+          <ul class="tsd-legend">
+            <li class="tsd-kind-constructor tsd-parent-kind-class tsd-is-inherited">
+              <span class="tsd-kind-icon">Inherited constructor</span>
+            </li>
+            <li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
+              <span class="tsd-kind-icon">Inherited property</span>
+            </li>
+            <li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+              <span class="tsd-kind-icon">Inherited method</span>
+            </li>
+            <li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-inherited">
+              <span class="tsd-kind-icon">Inherited accessor</span>
+            </li>
+          </ul>
+          <ul class="tsd-legend">
+            <li class="tsd-kind-property tsd-parent-kind-class tsd-is-protected">
+              <span class="tsd-kind-icon">Protected property</span>
+            </li>
+            <li class="tsd-kind-method tsd-parent-kind-class tsd-is-protected">
+              <span class="tsd-kind-icon">Protected method</span>
+            </li>
+            <li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-protected">
+              <span class="tsd-kind-icon">Protected accessor</span>
+            </li>
+          </ul>
+          <ul class="tsd-legend">
+            <li class="tsd-kind-property tsd-parent-kind-class tsd-is-private">
+              <span class="tsd-kind-icon">Private property</span>
+            </li>
+            <li class="tsd-kind-method tsd-parent-kind-class tsd-is-private">
+              <span class="tsd-kind-icon">Private method</span>
+            </li>
+            <li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-private">
+              <span class="tsd-kind-icon">Private accessor</span>
+            </li>
+          </ul>
+          <ul class="tsd-legend">
+            <li class="tsd-kind-property tsd-parent-kind-class tsd-is-static">
+              <span class="tsd-kind-icon">Static property</span>
+            </li>
+            <li class="tsd-kind-call-signature tsd-parent-kind-class tsd-is-static">
+              <span class="tsd-kind-icon">Static method</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </footer>
+    <div class="container tsd-generator">
+      <p>Generated using <a href="http://typedoc.org/" target="_blank">TypeDoc</a></p>
+    </div>
+    <div class="overlay"></div>
+    <script src="assets/js/main.js"></script>
+    <script>
+      if (location.protocol == 'file:')
+        document.write('<script src="assets/js/search.js"><' + '/script>')
+    </script>
+  </body>
+</html>

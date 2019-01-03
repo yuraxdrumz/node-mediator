@@ -1,3 +1,3 @@
 export type Listener = {
-  (...values: any[]): void
+  (...values: any[]): Promise<any> | void
 }

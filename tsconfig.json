@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "declaration": true,
     "outDir": "./dist",
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
@@ -16,7 +17,8 @@
     "resolveJsonModule": true,
     "sourceMap": true,
     "strict": true,
-    "target": "es2015",
+    "target": "es5",
+    "lib": ["es2017", "es7", "es6", "dom"],
     "baseUrl": ".",
     "experimentalDecorators": true /* Enables experimental support for ES7 decorators. */,
     "emitDecoratorMetadata": true,
@@ -25,5 +27,6 @@
     },
     "typeRoots": ["./node_modules/@types", "./src/types/**"]
   },
-  "include": ["src/**/*", "index.ts"]
+  "include": ["src/**/*", "index.ts"],
+  "exclude": ["src/utils/**", "__tests__/**"]
 }
