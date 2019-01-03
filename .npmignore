@@ -2,7 +2,7 @@ examples
 __tests__
 .history
 node_modules
-src
+/src
 yarn.lock
 tsconfig.json
 package-lock.json
