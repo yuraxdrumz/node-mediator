@@ -41,36 +41,42 @@ export default class ConcreteMediator implements Mediator {
     return !!this.colleagues[colleague.name]
   }
   on(colleague: Colleague, event: string, cb: Listener) {
-    if (this.checkColleagueExists(colleague) && this.onEventExists(colleague, event)) {
-      this.emitter.on(event, cb)
-    } else {
+    if (!this.checkColleagueExists(colleague)) {
+      throw new Error(`Colleague with name ${colleague.name} was not registered...`)
+    } else if (!this.onEventExists(colleague, event)) {
       throw new Error(
         `.on event of type: ${event} for Colleague: ${
           colleague.name
         } is not allowed, please check relationship map...`
       )
+    } else {
+      this.emitter.on(event, cb)
     }
   }
   emitAsync(colleague: Colleague, event: string, ...args: any[]): Promise<any> {
-    if (this.checkColleagueExists(colleague) && this.emitEventExists(colleague, event)) {
-      return this.emitter.emitAsync(event, ...args)
-    } else {
+    if (!this.checkColleagueExists(colleague)) {
+      throw new Error(`Colleague with name ${colleague.name} was not registered...`)
+    } else if (!this.onEventExists(colleague, event)) {
       throw new Error(
-        `.emit event of type: ${event} for Colleague: ${
+        `.emitAsync event of type: ${event} for Colleague: ${
           colleague.name
         } is not allowed, please check relationship map...`
       )
+    } else {
+      return this.emitter.emitAsync(event, ...args)
     }
   }
   emit(colleague: Colleague, event: string, ...args: any[]): boolean {
-    if (this.checkColleagueExists(colleague) && this.emitEventExists(colleague, event)) {
-      return this.emitter.emit(event, ...args)
-    } else {
+    if (!this.checkColleagueExists(colleague)) {
+      throw new Error(`Colleague with name ${colleague.name} was not registered...`)
+    } else if (!this.onEventExists(colleague, event)) {
       throw new Error(
         `.emit event of type: ${event} for Colleague: ${
           colleague.name
         } is not allowed, please check relationship map...`
       )
+    } else {
+      return this.emitter.emit(event, ...args)
     }
   }
 }

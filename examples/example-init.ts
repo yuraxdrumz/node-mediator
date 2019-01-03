@@ -1,4 +1,4 @@
-import { NodeMediator, Colleague, RelationsMap } from './dist'
+import { NodeMediator, Colleague, RelationsMap } from '../dist'
 
 class Tester extends Colleague {
   test() {

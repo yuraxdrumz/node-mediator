@@ -2,3 +2,12 @@ examples
 __tests__
 .history
 node_modules
+src
+yarn.lock
+tsconfig.json
+package-lock.json
+index.ts
+.gitignore
+.prettierignore
+.prettierrc.json
+jest.config.js
