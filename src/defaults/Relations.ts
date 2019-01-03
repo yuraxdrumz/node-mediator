@@ -1,6 +1,6 @@
-import { Relationship } from '../types/Relationship'
+import { Relations } from '../types/Relations'
 
-const relationship: Relationship = {
+const relations: Relations = {
   logger: {
     on: { 'logger::*': true },
     emit: {
@@ -18,4 +18,4 @@ const relationship: Relationship = {
   }
 }
 
-export default relationship
+export default relations

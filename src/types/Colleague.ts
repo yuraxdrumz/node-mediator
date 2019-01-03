@@ -1,2 +1,6 @@
+import Colleague from '../abstracts/Colleague'
+
 export type ColleagueName = string
-export type ColleagueId = string
+export type ColleagueMap = {
+  [key: string]: Colleague
+}

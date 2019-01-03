@@ -1,17 +1,30 @@
 {
   "name": "mediator",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.ts",
+  "description": "A mediator design pattern written in typescript with eventemitter2 in node. Allows building seperate, decoupled applications in a breeze.",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "scripts": {
     "test": "jest",
     "start": "ts-node --files index.ts",
     "build": "rimraf ./dist && tsc --p tsconfig.json",
     "prettier": "prettier --write **/*.ts && prettier --write __tests__/**/*.ts"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yuraxdrumz/node-typescript-starter"
+  },
+  "keywords": [
+    "nodejs",
+    "event",
+    "emitter",
+    "mediator",
+    "typescript",
+    "design",
+    "pattern"
+  ],
+  "author": "Yuri Khomyakov",
+  "license": "MIT",
   "husky": {
     "hooks": {
       "pre-commit": "pretty-quick --staged && npm t"

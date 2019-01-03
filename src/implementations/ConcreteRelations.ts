@@ -1,14 +1,14 @@
-import ColleagueRelationship from '../interfaces/ColleagueRelationship'
-import { ColleagueName } from '../types/Colleague'
-import { Relationship } from '../types/Relationship'
+import ColleagueRelationship from '../interfaces/ColleagueRelations'
+import { ColleagueMap } from '../types/Colleague'
+import { Relations } from '../types/Relations'
 import Colleague from '../abstracts/Colleague'
 
 // moved all colleague relationship outside of mediator in order to follow the Common Closure Principle(put components that change often to seperate classes from those who dont)
 export default class ConcreteRelationship implements ColleagueRelationship {
-  private _colleagues: object = {}
-  readonly relationship: Relationship
+  private _colleagues: ColleagueMap = {}
+  readonly relationship: Relations
 
-  constructor(relationship: Relationship) {
+  constructor(relationship: Relations) {
     this.relationship = relationship
   }
 
@@ -30,7 +30,7 @@ export default class ConcreteRelationship implements ColleagueRelationship {
   }
   register(colleague: Colleague) {
     if (!this._colleagues[colleague.name]) {
-      this._colleagues[colleague.name] = true
+      this._colleagues[colleague.name] = colleague
     } else {
       throw new Error(`Colleague ${colleague.name} already exists!`)
     }

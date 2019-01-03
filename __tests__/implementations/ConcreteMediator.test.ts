@@ -1,10 +1,10 @@
-import relationship from '../../src/defaults/Relationship'
+import relationship from '../../src/defaults/Relations'
 import ConcreteEmitter from '../../src/implementations/ConcreteEmitter'
 import ConcreteMediator from '../../src/implementations/ConcreteMediator'
-import ConcreteRelationship from '../../src/implementations/ConcreteRelationship'
+import ConcreteRelationship from '../../src/implementations/ConcreteRelations'
 import Emitter from '../../src/interfaces/Emitter'
 import Mediator from '../../src/interfaces/Mediator'
-import ColleagueRelationship from '../../src/interfaces/ColleagueRelationship'
+import ColleagueRelationship from '../../src/interfaces/ColleagueRelations'
 
 describe('Mediator suite', () => {
   let instance: Mediator

@@ -2,9 +2,8 @@ import Mediator from '../interfaces/Mediator'
 import { Listener } from '../types/Listener'
 import Emitter from '../interfaces/Emitter'
 import Colleague from '../abstracts/Colleague'
-import ColleagueRelationship from '../interfaces/ColleagueRelationship'
+import ColleagueRelationship from '../interfaces/ColleagueRelations'
 
-// TODO: add delimiter to events
 // an instance of a mediator which accepts an emitter interface implementor
 export default class ConcreteMediator implements Mediator {
   emitter: Emitter

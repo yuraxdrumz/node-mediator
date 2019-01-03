@@ -1,7 +1,7 @@
 import * as Types from '../types/Listener'
 import Emitter from './Emitter'
 import Colleague from '../abstracts/Colleague'
-import ColleagueRelationship from './ColleagueRelationship'
+import ColleagueRelationship from './ColleagueRelations'
 
 // a mediator interface(a contract with the emitter interface)
 export default interface Mediator {
