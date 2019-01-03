@@ -4,3 +4,4 @@ package-lock.json
 dist
 test.ts
 yarn.lock
+docs
