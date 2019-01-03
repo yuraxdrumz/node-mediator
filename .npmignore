@@ -11,4 +11,3 @@ index.ts
 .prettierignore
 .prettierrc.json
 jest.config.js
-/docs
