@@ -20,7 +20,7 @@ export { Mediator, Emitter, Colleague }
 export abstract class NodeMediator {
   constructor(
     private readonly relations: Relations,
-    private emitter: Emitter = new _Emitter({ wildcard: true, delimiter: '::' })
+    private emitter: Emitter = new _Emitter({ wildcard: true, delimiter: '::', maxListeners: 100 })
   ) {}
   protected mediator: Mediator = new _Mediator(this.relations, this.emitter)
 }
