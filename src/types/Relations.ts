@@ -1,8 +1,10 @@
 import { EventBoolean } from './EventBoolean'
 
-export type Relations = {
-  readonly [key: string]: {
+type RelationsMap = {
+  [key: string]: {
     on: EventBoolean
     emit: EventBoolean
   }
 }
+
+export default RelationsMap

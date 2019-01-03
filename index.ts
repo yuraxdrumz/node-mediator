@@ -1,21 +1,26 @@
 // types
-import {
-  ColleagueMap as _ColleagueMap,
-  ColleagueName as _ColleagueName
-} from './src/types/Colleague'
-import { Relations as _RelationsMap } from './src/types/Relations'
+import { ColleagueName as Name } from './src/types/Colleague'
+import Relations from './src/types/Relations'
 
 // interfaces
 import Mediator from './src/interfaces/Mediator'
 import Emitter from './src/interfaces/Emitter'
-import ColleagueRelations from './src/interfaces/ColleagueRelations'
 
 // concretes
-import NodeMediator from './src/main'
 import Colleague from './src/abstracts/Colleague'
+import _Mediator from './src/implementations/ConcreteMediator'
+import _Emitter from './src/implementations/ConcreteEmitter'
 
-export declare type ColleagueMap = _ColleagueMap
-export declare type ColleagueName = _ColleagueName
-export declare type RelationsMap = _RelationsMap
+export declare type ColleagueName = Name
+export declare type RelationsMap = Relations
 
-export { NodeMediator, Colleague, ColleagueRelations, Emitter, Mediator }
+export { Mediator, Emitter, Colleague }
+
+// facade class to abstract start complexity...
+export abstract class NodeMediator {
+  constructor(
+    private readonly relations: Relations,
+    private emitter: Emitter = new _Emitter({ wildcard: true, delimiter: '::' })
+  ) {}
+  protected mediator: Mediator = new _Mediator(this.relations, this.emitter)
+}

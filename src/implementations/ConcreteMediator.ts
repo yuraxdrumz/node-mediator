@@ -2,21 +2,46 @@ import Mediator from '../interfaces/Mediator'
 import { Listener } from '../types/Listener'
 import Emitter from '../interfaces/Emitter'
 import Colleague from '../abstracts/Colleague'
-import ColleagueRelationship from '../interfaces/ColleagueRelations'
-
+import { ColleagueMap } from '../types/Colleague'
+import RelationsMap from '../types/Relations'
 // an instance of a mediator which accepts an emitter interface implementor
 export default class ConcreteMediator implements Mediator {
   emitter: Emitter
-  relationship: ColleagueRelationship
-  constructor(emitter: Emitter, relationship: ColleagueRelationship) {
+  relations: RelationsMap
+  colleagues: ColleagueMap = {}
+  constructor(relations: RelationsMap, emitter: Emitter) {
     this.emitter = emitter
-    this.relationship = relationship
+    this.relations = relations
+  }
+
+  onEventExists(colleague: Colleague, event: string) {
+    return !!(
+      this.relations &&
+      this.relations[colleague.name] &&
+      this.relations[colleague.name].on &&
+      this.relations[colleague.name].on[event]
+    )
+  }
+  emitEventExists(colleague: Colleague, event: string) {
+    return !!(
+      this.relations &&
+      this.relations[colleague.name] &&
+      this.relations[colleague.name].emit &&
+      this.relations[colleague.name].emit[event]
+    )
+  }
+  register(colleague: Colleague) {
+    if (!this.colleagues[colleague.name]) {
+      this.colleagues[colleague.name] = colleague
+    } else {
+      throw new Error(`Colleague ${colleague.name} already exists!`)
+    }
+  }
+  checkColleagueExists(colleague: Colleague) {
+    return !!this.colleagues[colleague.name]
   }
   on(colleague: Colleague, event: string, cb: Listener) {
-    if (
-      this.relationship.checkColleagueExists(colleague) &&
-      this.relationship.onEventExists(colleague, event)
-    ) {
+    if (this.checkColleagueExists(colleague) && this.onEventExists(colleague, event)) {
       this.emitter.on(event, cb)
     } else {
       throw new Error(
@@ -27,10 +52,7 @@ export default class ConcreteMediator implements Mediator {
     }
   }
   emitAsync(colleague: Colleague, event: string, ...args: any[]): Promise<any> {
-    if (
-      this.relationship.checkColleagueExists(colleague) &&
-      this.relationship.emitEventExists(colleague, event)
-    ) {
+    if (this.checkColleagueExists(colleague) && this.emitEventExists(colleague, event)) {
       return this.emitter.emitAsync(event, ...args)
     } else {
       throw new Error(
@@ -41,10 +63,7 @@ export default class ConcreteMediator implements Mediator {
     }
   }
   emit(colleague: Colleague, event: string, ...args: any[]): boolean {
-    if (
-      this.relationship.checkColleagueExists(colleague) &&
-      this.relationship.emitEventExists(colleague, event)
-    ) {
+    if (this.checkColleagueExists(colleague) && this.emitEventExists(colleague, event)) {
       return this.emitter.emit(event, ...args)
     } else {
       throw new Error(
@@ -53,8 +72,5 @@ export default class ConcreteMediator implements Mediator {
         } is not allowed, please check relationship map...`
       )
     }
-  }
-  register(colleague: Colleague) {
-    return this.relationship.register(colleague)
   }
 }
