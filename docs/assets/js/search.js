@@ -80,25 +80,25 @@ typedoc.search.data = {
     {
       id: 8,
       kind: 1,
-      name: '"types/EventBoolean"',
-      url: 'modules/_types_eventboolean_.html',
+      name: '"types/RelationsEventMap"',
+      url: 'modules/_types_relationseventmap_.html',
       classes: 'tsd-kind-external-module'
     },
     {
       id: 9,
       kind: 4194304,
-      name: 'EventBoolean',
-      url: 'modules/_types_eventboolean_.html#eventboolean',
+      name: 'RelationsEventMap',
+      url: 'modules/_types_relationseventmap_.html#relationseventmap',
       classes: 'tsd-kind-type-alias tsd-parent-kind-external-module',
-      parent: '"types/EventBoolean"'
+      parent: '"types/RelationsEventMap"'
     },
     {
       id: 10,
       kind: 65536,
       name: '__type',
-      url: 'modules/_types_eventboolean_.html#eventboolean.__type',
+      url: 'modules/_types_relationseventmap_.html#relationseventmap.__type',
       classes: 'tsd-kind-type-literal tsd-parent-kind-type-alias tsd-is-not-exported',
-      parent: '"types/EventBoolean".EventBoolean'
+      parent: '"types/RelationsEventMap".RelationsEventMap'
     },
     {
       id: 11,
@@ -220,21 +220,13 @@ typedoc.search.data = {
     {
       id: 26,
       kind: 2048,
-      name: 'register',
-      url: 'interfaces/_interfaces_mediator_.mediator.html#register',
-      classes: 'tsd-kind-method tsd-parent-kind-interface',
-      parent: '"interfaces/Mediator".Mediator'
-    },
-    {
-      id: 27,
-      kind: 2048,
       name: 'onEventExists',
       url: 'interfaces/_interfaces_mediator_.mediator.html#oneventexists',
       classes: 'tsd-kind-method tsd-parent-kind-interface',
       parent: '"interfaces/Mediator".Mediator'
     },
     {
-      id: 28,
+      id: 27,
       kind: 2048,
       name: 'emitEventExists',
       url: 'interfaces/_interfaces_mediator_.mediator.html#emiteventexists',
@@ -242,10 +234,18 @@ typedoc.search.data = {
       parent: '"interfaces/Mediator".Mediator'
     },
     {
-      id: 29,
+      id: 28,
       kind: 2048,
       name: 'checkColleagueExists',
       url: 'interfaces/_interfaces_mediator_.mediator.html#checkcolleagueexists',
+      classes: 'tsd-kind-method tsd-parent-kind-interface',
+      parent: '"interfaces/Mediator".Mediator'
+    },
+    {
+      id: 29,
+      kind: 2048,
+      name: 'register',
+      url: 'interfaces/_interfaces_mediator_.mediator.html#register',
       classes: 'tsd-kind-method tsd-parent-kind-interface',
       parent: '"interfaces/Mediator".Mediator'
     },
