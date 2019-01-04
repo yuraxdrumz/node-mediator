@@ -1,6 +1,6 @@
 {
   "name": "node-mediator",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "A Node.js event based mediator design pattern written in typescript with eventemitter2. It Allows building seperate, decoupled, more testable modules in a breeze.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
