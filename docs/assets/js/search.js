@@ -41,128 +41,12 @@ typedoc.search.data = {
     {
       id: 3,
       kind: 1,
-      name: '"interfaces/Emitter"',
-      url: 'modules/_interfaces_emitter_.html',
-      classes: 'tsd-kind-external-module'
-    },
-    {
-      id: 4,
-      kind: 256,
-      name: 'Emitter',
-      url: 'interfaces/_interfaces_emitter_.emitter.html',
-      classes: 'tsd-kind-interface tsd-parent-kind-external-module',
-      parent: '"interfaces/Emitter"'
-    },
-    {
-      id: 5,
-      kind: 2048,
-      name: 'on',
-      url: 'interfaces/_interfaces_emitter_.emitter.html#on',
-      classes: 'tsd-kind-method tsd-parent-kind-interface',
-      parent: '"interfaces/Emitter".Emitter'
-    },
-    {
-      id: 6,
-      kind: 2048,
-      name: 'emit',
-      url: 'interfaces/_interfaces_emitter_.emitter.html#emit',
-      classes: 'tsd-kind-method tsd-parent-kind-interface',
-      parent: '"interfaces/Emitter".Emitter'
-    },
-    {
-      id: 7,
-      kind: 2048,
-      name: 'emitAsync',
-      url: 'interfaces/_interfaces_emitter_.emitter.html#emitasync',
-      classes: 'tsd-kind-method tsd-parent-kind-interface',
-      parent: '"interfaces/Emitter".Emitter'
-    },
-    {
-      id: 8,
-      kind: 1,
-      name: '"types/EventBoolean"',
-      url: 'modules/_types_eventboolean_.html',
-      classes: 'tsd-kind-external-module'
-    },
-    {
-      id: 9,
-      kind: 4194304,
-      name: 'EventBoolean',
-      url: 'modules/_types_eventboolean_.html#eventboolean',
-      classes: 'tsd-kind-type-alias tsd-parent-kind-external-module',
-      parent: '"types/EventBoolean"'
-    },
-    {
-      id: 10,
-      kind: 65536,
-      name: '__type',
-      url: 'modules/_types_eventboolean_.html#eventboolean.__type',
-      classes: 'tsd-kind-type-literal tsd-parent-kind-type-alias tsd-is-not-exported',
-      parent: '"types/EventBoolean".EventBoolean'
-    },
-    {
-      id: 11,
-      kind: 1,
-      name: '"types/Relations"',
-      url: 'modules/_types_relations_.html',
-      classes: 'tsd-kind-external-module'
-    },
-    {
-      id: 12,
-      kind: 4194304,
-      name: 'RelationsMap',
-      url: 'modules/_types_relations_.html#relationsmap',
-      classes: 'tsd-kind-type-alias tsd-parent-kind-external-module',
-      parent: '"types/Relations"'
-    },
-    {
-      id: 13,
-      kind: 65536,
-      name: '__type',
-      url: 'modules/_types_relations_.html#relationsmap.__type',
-      classes: 'tsd-kind-type-literal tsd-parent-kind-type-alias',
-      parent: '"types/Relations".RelationsMap'
-    },
-    {
-      id: 14,
-      kind: 1,
-      name: '"types/Colleague"',
-      url: 'modules/_types_colleague_.html',
-      classes: 'tsd-kind-external-module'
-    },
-    {
-      id: 15,
-      kind: 4194304,
-      name: 'ColleagueName',
-      url: 'modules/_types_colleague_.html#colleaguename',
-      classes: 'tsd-kind-type-alias tsd-parent-kind-external-module',
-      parent: '"types/Colleague"'
-    },
-    {
-      id: 16,
-      kind: 4194304,
-      name: 'ColleagueMap',
-      url: 'modules/_types_colleague_.html#colleaguemap',
-      classes: 'tsd-kind-type-alias tsd-parent-kind-external-module',
-      parent: '"types/Colleague"'
-    },
-    {
-      id: 17,
-      kind: 65536,
-      name: '__type',
-      url: 'modules/_types_colleague_.html#colleaguemap.__type',
-      classes: 'tsd-kind-type-literal tsd-parent-kind-type-alias tsd-is-not-exported',
-      parent: '"types/Colleague".ColleagueMap'
-    },
-    {
-      id: 18,
-      kind: 1,
       name: '"interfaces/Mediator"',
       url: 'modules/_interfaces_mediator_.html',
       classes: 'tsd-kind-external-module'
     },
     {
-      id: 19,
+      id: 4,
       kind: 256,
       name: 'Mediator',
       url: 'interfaces/_interfaces_mediator_.mediator.html',
@@ -170,31 +54,7 @@ typedoc.search.data = {
       parent: '"interfaces/Mediator"'
     },
     {
-      id: 20,
-      kind: 1024,
-      name: 'emitter',
-      url: 'interfaces/_interfaces_mediator_.mediator.html#emitter',
-      classes: 'tsd-kind-property tsd-parent-kind-interface',
-      parent: '"interfaces/Mediator".Mediator'
-    },
-    {
-      id: 21,
-      kind: 1024,
-      name: 'relations',
-      url: 'interfaces/_interfaces_mediator_.mediator.html#relations',
-      classes: 'tsd-kind-property tsd-parent-kind-interface',
-      parent: '"interfaces/Mediator".Mediator'
-    },
-    {
-      id: 22,
-      kind: 1024,
-      name: 'colleagues',
-      url: 'interfaces/_interfaces_mediator_.mediator.html#colleagues',
-      classes: 'tsd-kind-property tsd-parent-kind-interface',
-      parent: '"interfaces/Mediator".Mediator'
-    },
-    {
-      id: 23,
+      id: 5,
       kind: 2048,
       name: 'emit',
       url: 'interfaces/_interfaces_mediator_.mediator.html#emit',
@@ -202,7 +62,7 @@ typedoc.search.data = {
       parent: '"interfaces/Mediator".Mediator'
     },
     {
-      id: 24,
+      id: 6,
       kind: 2048,
       name: 'emitAsync',
       url: 'interfaces/_interfaces_mediator_.mediator.html#emitasync',
@@ -210,7 +70,7 @@ typedoc.search.data = {
       parent: '"interfaces/Mediator".Mediator'
     },
     {
-      id: 25,
+      id: 7,
       kind: 2048,
       name: 'on',
       url: 'interfaces/_interfaces_mediator_.mediator.html#on',
@@ -218,15 +78,7 @@ typedoc.search.data = {
       parent: '"interfaces/Mediator".Mediator'
     },
     {
-      id: 26,
-      kind: 2048,
-      name: 'register',
-      url: 'interfaces/_interfaces_mediator_.mediator.html#register',
-      classes: 'tsd-kind-method tsd-parent-kind-interface',
-      parent: '"interfaces/Mediator".Mediator'
-    },
-    {
-      id: 27,
+      id: 8,
       kind: 2048,
       name: 'onEventExists',
       url: 'interfaces/_interfaces_mediator_.mediator.html#oneventexists',
@@ -234,7 +86,7 @@ typedoc.search.data = {
       parent: '"interfaces/Mediator".Mediator'
     },
     {
-      id: 28,
+      id: 9,
       kind: 2048,
       name: 'emitEventExists',
       url: 'interfaces/_interfaces_mediator_.mediator.html#emiteventexists',
@@ -242,7 +94,7 @@ typedoc.search.data = {
       parent: '"interfaces/Mediator".Mediator'
     },
     {
-      id: 29,
+      id: 10,
       kind: 2048,
       name: 'checkColleagueExists',
       url: 'interfaces/_interfaces_mediator_.mediator.html#checkcolleagueexists',
@@ -250,14 +102,53 @@ typedoc.search.data = {
       parent: '"interfaces/Mediator".Mediator'
     },
     {
-      id: 30,
+      id: 11,
+      kind: 2048,
+      name: 'register',
+      url: 'interfaces/_interfaces_mediator_.mediator.html#register',
+      classes: 'tsd-kind-method tsd-parent-kind-interface',
+      parent: '"interfaces/Mediator".Mediator'
+    },
+    {
+      id: 12,
+      kind: 1,
+      name: '"types/Colleague"',
+      url: 'modules/_types_colleague_.html',
+      classes: 'tsd-kind-external-module'
+    },
+    {
+      id: 13,
+      kind: 4194304,
+      name: 'ColleagueName',
+      url: 'modules/_types_colleague_.html#colleaguename',
+      classes: 'tsd-kind-type-alias tsd-parent-kind-external-module',
+      parent: '"types/Colleague"'
+    },
+    {
+      id: 14,
+      kind: 4194304,
+      name: 'ColleagueMap',
+      url: 'modules/_types_colleague_.html#colleaguemap',
+      classes: 'tsd-kind-type-alias tsd-parent-kind-external-module',
+      parent: '"types/Colleague"'
+    },
+    {
+      id: 15,
+      kind: 65536,
+      name: '__type',
+      url: 'modules/_types_colleague_.html#colleaguemap.__type',
+      classes: 'tsd-kind-type-literal tsd-parent-kind-type-alias tsd-is-not-exported',
+      parent: '"types/Colleague".ColleagueMap'
+    },
+    {
+      id: 16,
       kind: 1,
       name: '"abstracts/Colleague"',
       url: 'modules/_abstracts_colleague_.html',
       classes: 'tsd-kind-external-module'
     },
     {
-      id: 31,
+      id: 17,
       kind: 128,
       name: 'Colleague',
       url: 'classes/_abstracts_colleague_.colleague.html',
@@ -265,7 +156,7 @@ typedoc.search.data = {
       parent: '"abstracts/Colleague"'
     },
     {
-      id: 32,
+      id: 18,
       kind: 1024,
       name: 'mediator',
       url: 'classes/_abstracts_colleague_.colleague.html#mediator',
@@ -273,7 +164,7 @@ typedoc.search.data = {
       parent: '"abstracts/Colleague".Colleague'
     },
     {
-      id: 33,
+      id: 19,
       kind: 1024,
       name: 'name',
       url: 'classes/_abstracts_colleague_.colleague.html#name',
@@ -281,7 +172,7 @@ typedoc.search.data = {
       parent: '"abstracts/Colleague".Colleague'
     },
     {
-      id: 34,
+      id: 20,
       kind: 512,
       name: 'constructor',
       url: 'classes/_abstracts_colleague_.colleague.html#constructor',
@@ -289,7 +180,7 @@ typedoc.search.data = {
       parent: '"abstracts/Colleague".Colleague'
     },
     {
-      id: 35,
+      id: 21,
       kind: 2048,
       name: 'emit',
       url: 'classes/_abstracts_colleague_.colleague.html#emit',
@@ -297,7 +188,7 @@ typedoc.search.data = {
       parent: '"abstracts/Colleague".Colleague'
     },
     {
-      id: 36,
+      id: 22,
       kind: 2048,
       name: 'emitAsync',
       url: 'classes/_abstracts_colleague_.colleague.html#emitasync',
@@ -305,7 +196,7 @@ typedoc.search.data = {
       parent: '"abstracts/Colleague".Colleague'
     },
     {
-      id: 37,
+      id: 23,
       kind: 2048,
       name: 'on',
       url: 'classes/_abstracts_colleague_.colleague.html#on',
@@ -313,7 +204,7 @@ typedoc.search.data = {
       parent: '"abstracts/Colleague".Colleague'
     },
     {
-      id: 38,
+      id: 24,
       kind: 2048,
       name: 'register',
       url: 'classes/_abstracts_colleague_.colleague.html#register',
@@ -321,14 +212,60 @@ typedoc.search.data = {
       parent: '"abstracts/Colleague".Colleague'
     },
     {
-      id: 39,
+      id: 25,
+      kind: 1,
+      name: '"types/RelationsEventMap"',
+      url: 'modules/_types_relationseventmap_.html',
+      classes: 'tsd-kind-external-module'
+    },
+    {
+      id: 26,
+      kind: 4194304,
+      name: 'RelationsEventMap',
+      url: 'modules/_types_relationseventmap_.html#relationseventmap',
+      classes: 'tsd-kind-type-alias tsd-parent-kind-external-module',
+      parent: '"types/RelationsEventMap"'
+    },
+    {
+      id: 27,
+      kind: 65536,
+      name: '__type',
+      url: 'modules/_types_relationseventmap_.html#relationseventmap.__type',
+      classes: 'tsd-kind-type-literal tsd-parent-kind-type-alias tsd-is-not-exported',
+      parent: '"types/RelationsEventMap".RelationsEventMap'
+    },
+    {
+      id: 28,
+      kind: 1,
+      name: '"types/Relations"',
+      url: 'modules/_types_relations_.html',
+      classes: 'tsd-kind-external-module'
+    },
+    {
+      id: 29,
+      kind: 4194304,
+      name: 'RelationsMap',
+      url: 'modules/_types_relations_.html#relationsmap',
+      classes: 'tsd-kind-type-alias tsd-parent-kind-external-module',
+      parent: '"types/Relations"'
+    },
+    {
+      id: 30,
+      kind: 65536,
+      name: '__type',
+      url: 'modules/_types_relations_.html#relationsmap.__type',
+      classes: 'tsd-kind-type-literal tsd-parent-kind-type-alias',
+      parent: '"types/Relations".RelationsMap'
+    },
+    {
+      id: 31,
       kind: 1,
       name: '"defaults/Relations"',
       url: 'modules/_defaults_relations_.html',
       classes: 'tsd-kind-external-module'
     },
     {
-      id: 40,
+      id: 32,
       kind: 2097152,
       name: 'relations',
       url: 'modules/_defaults_relations_.html#relations',
@@ -336,7 +273,7 @@ typedoc.search.data = {
       parent: '"defaults/Relations"'
     },
     {
-      id: 41,
+      id: 33,
       kind: 2097152,
       name: 'logger',
       url: 'modules/_defaults_relations_.html#relations.logger',
@@ -344,7 +281,7 @@ typedoc.search.data = {
       parent: '"defaults/Relations".relations'
     },
     {
-      id: 42,
+      id: 34,
       kind: 2097152,
       name: 'on',
       url: 'modules/_defaults_relations_.html#relations.logger.on',
@@ -352,7 +289,7 @@ typedoc.search.data = {
       parent: '"defaults/Relations".relations.logger'
     },
     {
-      id: 43,
+      id: 35,
       kind: 32,
       name: 'logger::*',
       url: 'modules/_defaults_relations_.html#relations.logger.on.logger___',
@@ -360,7 +297,7 @@ typedoc.search.data = {
       parent: '"defaults/Relations".relations.logger.on'
     },
     {
-      id: 44,
+      id: 36,
       kind: 2097152,
       name: 'emit',
       url: 'modules/_defaults_relations_.html#relations.logger.emit',
@@ -368,7 +305,7 @@ typedoc.search.data = {
       parent: '"defaults/Relations".relations.logger'
     },
     {
-      id: 45,
+      id: 37,
       kind: 32,
       name: 'logger::start',
       url: 'modules/_defaults_relations_.html#relations.logger.emit.logger__start',
@@ -376,7 +313,7 @@ typedoc.search.data = {
       parent: '"defaults/Relations".relations.logger.emit'
     },
     {
-      id: 46,
+      id: 38,
       kind: 32,
       name: 'logger::end',
       url: 'modules/_defaults_relations_.html#relations.logger.emit.logger__end',
@@ -384,7 +321,7 @@ typedoc.search.data = {
       parent: '"defaults/Relations".relations.logger.emit'
     },
     {
-      id: 47,
+      id: 39,
       kind: 2097152,
       name: 'timer',
       url: 'modules/_defaults_relations_.html#relations.timer',
@@ -392,7 +329,7 @@ typedoc.search.data = {
       parent: '"defaults/Relations".relations'
     },
     {
-      id: 48,
+      id: 40,
       kind: 2097152,
       name: 'on',
       url: 'modules/_defaults_relations_.html#relations.timer.on-2',
@@ -400,7 +337,7 @@ typedoc.search.data = {
       parent: '"defaults/Relations".relations.timer'
     },
     {
-      id: 49,
+      id: 41,
       kind: 32,
       name: 'timer::*',
       url: 'modules/_defaults_relations_.html#relations.timer.on-2.timer___',
@@ -408,7 +345,7 @@ typedoc.search.data = {
       parent: '"defaults/Relations".relations.timer.on'
     },
     {
-      id: 50,
+      id: 42,
       kind: 2097152,
       name: 'emit',
       url: 'modules/_defaults_relations_.html#relations.timer.emit-2',
@@ -416,7 +353,7 @@ typedoc.search.data = {
       parent: '"defaults/Relations".relations.timer'
     },
     {
-      id: 51,
+      id: 43,
       kind: 32,
       name: 'timer::start',
       url: 'modules/_defaults_relations_.html#relations.timer.emit-2.timer__start',
@@ -424,7 +361,7 @@ typedoc.search.data = {
       parent: '"defaults/Relations".relations.timer.emit'
     },
     {
-      id: 52,
+      id: 44,
       kind: 32,
       name: 'timer::test',
       url: 'modules/_defaults_relations_.html#relations.timer.emit-2.timer__test',
@@ -432,7 +369,7 @@ typedoc.search.data = {
       parent: '"defaults/Relations".relations.timer.emit'
     },
     {
-      id: 53,
+      id: 45,
       kind: 2097152,
       name: 'promise-tester',
       url: 'modules/_defaults_relations_.html#relations.promise_tester',
@@ -440,7 +377,7 @@ typedoc.search.data = {
       parent: '"defaults/Relations".relations'
     },
     {
-      id: 54,
+      id: 46,
       kind: 2097152,
       name: 'on',
       url: 'modules/_defaults_relations_.html#relations.promise_tester.on-1',
@@ -448,7 +385,7 @@ typedoc.search.data = {
       parent: '"defaults/Relations".relations.promise-tester'
     },
     {
-      id: 55,
+      id: 47,
       kind: 32,
       name: 'promise-tester::test',
       url: 'modules/_defaults_relations_.html#relations.promise_tester.on-1.promise_tester__test-1',
@@ -456,7 +393,7 @@ typedoc.search.data = {
       parent: '"defaults/Relations".relations.promise-tester.on'
     },
     {
-      id: 56,
+      id: 48,
       kind: 2097152,
       name: 'emit',
       url: 'modules/_defaults_relations_.html#relations.promise_tester.emit-1',
@@ -464,7 +401,7 @@ typedoc.search.data = {
       parent: '"defaults/Relations".relations.promise-tester'
     },
     {
-      id: 57,
+      id: 49,
       kind: 32,
       name: 'promise-tester::test',
       url: 'modules/_defaults_relations_.html#relations.promise_tester.emit-1.promise_tester__test',
@@ -472,14 +409,53 @@ typedoc.search.data = {
       parent: '"defaults/Relations".relations.promise-tester.emit'
     },
     {
-      id: 58,
+      id: 50,
+      kind: 1,
+      name: '"interfaces/Emitter"',
+      url: 'modules/_interfaces_emitter_.html',
+      classes: 'tsd-kind-external-module'
+    },
+    {
+      id: 51,
+      kind: 256,
+      name: 'Emitter',
+      url: 'interfaces/_interfaces_emitter_.emitter.html',
+      classes: 'tsd-kind-interface tsd-parent-kind-external-module',
+      parent: '"interfaces/Emitter"'
+    },
+    {
+      id: 52,
+      kind: 2048,
+      name: 'on',
+      url: 'interfaces/_interfaces_emitter_.emitter.html#on',
+      classes: 'tsd-kind-method tsd-parent-kind-interface',
+      parent: '"interfaces/Emitter".Emitter'
+    },
+    {
+      id: 53,
+      kind: 2048,
+      name: 'emit',
+      url: 'interfaces/_interfaces_emitter_.emitter.html#emit',
+      classes: 'tsd-kind-method tsd-parent-kind-interface',
+      parent: '"interfaces/Emitter".Emitter'
+    },
+    {
+      id: 54,
+      kind: 2048,
+      name: 'emitAsync',
+      url: 'interfaces/_interfaces_emitter_.emitter.html#emitasync',
+      classes: 'tsd-kind-method tsd-parent-kind-interface',
+      parent: '"interfaces/Emitter".Emitter'
+    },
+    {
+      id: 55,
       kind: 1,
       name: '"implementations/ConcreteEmitter"',
       url: 'modules/_implementations_concreteemitter_.html',
       classes: 'tsd-kind-external-module'
     },
     {
-      id: 59,
+      id: 56,
       kind: 128,
       name: 'ConcreteEmitter',
       url: 'classes/_implementations_concreteemitter_.concreteemitter.html',
@@ -487,7 +463,7 @@ typedoc.search.data = {
       parent: '"implementations/ConcreteEmitter"'
     },
     {
-      id: 60,
+      id: 57,
       kind: 512,
       name: 'constructor',
       url: 'classes/_implementations_concreteemitter_.concreteemitter.html#constructor',
@@ -495,7 +471,7 @@ typedoc.search.data = {
       parent: '"implementations/ConcreteEmitter".ConcreteEmitter'
     },
     {
-      id: 61,
+      id: 58,
       kind: 2048,
       name: 'emit',
       url: 'classes/_implementations_concreteemitter_.concreteemitter.html#emit',
@@ -503,7 +479,7 @@ typedoc.search.data = {
       parent: '"implementations/ConcreteEmitter".ConcreteEmitter'
     },
     {
-      id: 62,
+      id: 59,
       kind: 2048,
       name: 'emitAsync',
       url: 'classes/_implementations_concreteemitter_.concreteemitter.html#emitasync',
@@ -511,7 +487,7 @@ typedoc.search.data = {
       parent: '"implementations/ConcreteEmitter".ConcreteEmitter'
     },
     {
-      id: 63,
+      id: 60,
       kind: 2048,
       name: 'addListener',
       url: 'classes/_implementations_concreteemitter_.concreteemitter.html#addlistener',
@@ -519,7 +495,7 @@ typedoc.search.data = {
       parent: '"implementations/ConcreteEmitter".ConcreteEmitter'
     },
     {
-      id: 64,
+      id: 61,
       kind: 2048,
       name: 'on',
       url: 'classes/_implementations_concreteemitter_.concreteemitter.html#on',
@@ -527,7 +503,7 @@ typedoc.search.data = {
       parent: '"implementations/ConcreteEmitter".ConcreteEmitter'
     },
     {
-      id: 65,
+      id: 62,
       kind: 2048,
       name: 'prependListener',
       url: 'classes/_implementations_concreteemitter_.concreteemitter.html#prependlistener',
@@ -535,7 +511,7 @@ typedoc.search.data = {
       parent: '"implementations/ConcreteEmitter".ConcreteEmitter'
     },
     {
-      id: 66,
+      id: 63,
       kind: 2048,
       name: 'once',
       url: 'classes/_implementations_concreteemitter_.concreteemitter.html#once',
@@ -543,7 +519,7 @@ typedoc.search.data = {
       parent: '"implementations/ConcreteEmitter".ConcreteEmitter'
     },
     {
-      id: 67,
+      id: 64,
       kind: 2048,
       name: 'prependOnceListener',
       url: 'classes/_implementations_concreteemitter_.concreteemitter.html#prependoncelistener',
@@ -551,7 +527,7 @@ typedoc.search.data = {
       parent: '"implementations/ConcreteEmitter".ConcreteEmitter'
     },
     {
-      id: 68,
+      id: 65,
       kind: 2048,
       name: 'many',
       url: 'classes/_implementations_concreteemitter_.concreteemitter.html#many',
@@ -559,7 +535,7 @@ typedoc.search.data = {
       parent: '"implementations/ConcreteEmitter".ConcreteEmitter'
     },
     {
-      id: 69,
+      id: 66,
       kind: 2048,
       name: 'prependMany',
       url: 'classes/_implementations_concreteemitter_.concreteemitter.html#prependmany',
@@ -567,7 +543,7 @@ typedoc.search.data = {
       parent: '"implementations/ConcreteEmitter".ConcreteEmitter'
     },
     {
-      id: 70,
+      id: 67,
       kind: 2048,
       name: 'onAny',
       url: 'classes/_implementations_concreteemitter_.concreteemitter.html#onany',
@@ -575,7 +551,7 @@ typedoc.search.data = {
       parent: '"implementations/ConcreteEmitter".ConcreteEmitter'
     },
     {
-      id: 71,
+      id: 68,
       kind: 2048,
       name: 'prependAny',
       url: 'classes/_implementations_concreteemitter_.concreteemitter.html#prependany',
@@ -583,7 +559,7 @@ typedoc.search.data = {
       parent: '"implementations/ConcreteEmitter".ConcreteEmitter'
     },
     {
-      id: 72,
+      id: 69,
       kind: 2048,
       name: 'offAny',
       url: 'classes/_implementations_concreteemitter_.concreteemitter.html#offany',
@@ -591,7 +567,7 @@ typedoc.search.data = {
       parent: '"implementations/ConcreteEmitter".ConcreteEmitter'
     },
     {
-      id: 73,
+      id: 70,
       kind: 2048,
       name: 'removeListener',
       url: 'classes/_implementations_concreteemitter_.concreteemitter.html#removelistener',
@@ -599,7 +575,7 @@ typedoc.search.data = {
       parent: '"implementations/ConcreteEmitter".ConcreteEmitter'
     },
     {
-      id: 74,
+      id: 71,
       kind: 2048,
       name: 'off',
       url: 'classes/_implementations_concreteemitter_.concreteemitter.html#off',
@@ -607,7 +583,7 @@ typedoc.search.data = {
       parent: '"implementations/ConcreteEmitter".ConcreteEmitter'
     },
     {
-      id: 75,
+      id: 72,
       kind: 2048,
       name: 'removeAllListeners',
       url: 'classes/_implementations_concreteemitter_.concreteemitter.html#removealllisteners',
@@ -615,7 +591,7 @@ typedoc.search.data = {
       parent: '"implementations/ConcreteEmitter".ConcreteEmitter'
     },
     {
-      id: 76,
+      id: 73,
       kind: 2048,
       name: 'setMaxListeners',
       url: 'classes/_implementations_concreteemitter_.concreteemitter.html#setmaxlisteners',
@@ -623,7 +599,7 @@ typedoc.search.data = {
       parent: '"implementations/ConcreteEmitter".ConcreteEmitter'
     },
     {
-      id: 77,
+      id: 74,
       kind: 2048,
       name: 'eventNames',
       url: 'classes/_implementations_concreteemitter_.concreteemitter.html#eventnames',
@@ -631,7 +607,7 @@ typedoc.search.data = {
       parent: '"implementations/ConcreteEmitter".ConcreteEmitter'
     },
     {
-      id: 78,
+      id: 75,
       kind: 2048,
       name: 'listeners',
       url: 'classes/_implementations_concreteemitter_.concreteemitter.html#listeners',
@@ -639,7 +615,7 @@ typedoc.search.data = {
       parent: '"implementations/ConcreteEmitter".ConcreteEmitter'
     },
     {
-      id: 79,
+      id: 76,
       kind: 2048,
       name: 'listenersAny',
       url: 'classes/_implementations_concreteemitter_.concreteemitter.html#listenersany',
@@ -647,14 +623,14 @@ typedoc.search.data = {
       parent: '"implementations/ConcreteEmitter".ConcreteEmitter'
     },
     {
-      id: 80,
+      id: 77,
       kind: 1,
       name: '"implementations/ConcreteMediator"',
       url: 'modules/_implementations_concretemediator_.html',
       classes: 'tsd-kind-external-module'
     },
     {
-      id: 81,
+      id: 78,
       kind: 128,
       name: 'ConcreteMediator',
       url: 'classes/_implementations_concretemediator_.concretemediator.html',
@@ -662,31 +638,31 @@ typedoc.search.data = {
       parent: '"implementations/ConcreteMediator"'
     },
     {
-      id: 82,
+      id: 79,
       kind: 1024,
       name: 'emitter',
       url: 'classes/_implementations_concretemediator_.concretemediator.html#emitter',
-      classes: 'tsd-kind-property tsd-parent-kind-class',
+      classes: 'tsd-kind-property tsd-parent-kind-class tsd-is-private',
       parent: '"implementations/ConcreteMediator".ConcreteMediator'
     },
     {
-      id: 83,
+      id: 80,
       kind: 1024,
       name: 'relations',
       url: 'classes/_implementations_concretemediator_.concretemediator.html#relations',
-      classes: 'tsd-kind-property tsd-parent-kind-class',
+      classes: 'tsd-kind-property tsd-parent-kind-class tsd-is-private',
       parent: '"implementations/ConcreteMediator".ConcreteMediator'
     },
     {
-      id: 84,
+      id: 81,
       kind: 1024,
       name: 'colleagues',
       url: 'classes/_implementations_concretemediator_.concretemediator.html#colleagues',
-      classes: 'tsd-kind-property tsd-parent-kind-class',
+      classes: 'tsd-kind-property tsd-parent-kind-class tsd-is-private',
       parent: '"implementations/ConcreteMediator".ConcreteMediator'
     },
     {
-      id: 85,
+      id: 82,
       kind: 512,
       name: 'constructor',
       url: 'classes/_implementations_concretemediator_.concretemediator.html#constructor',
@@ -694,7 +670,15 @@ typedoc.search.data = {
       parent: '"implementations/ConcreteMediator".ConcreteMediator'
     },
     {
-      id: 86,
+      id: 83,
+      kind: 2048,
+      name: 'eventExists',
+      url: 'classes/_implementations_concretemediator_.concretemediator.html#eventexists',
+      classes: 'tsd-kind-method tsd-parent-kind-class tsd-is-private',
+      parent: '"implementations/ConcreteMediator".ConcreteMediator'
+    },
+    {
+      id: 84,
       kind: 2048,
       name: 'onEventExists',
       url: 'classes/_implementations_concretemediator_.concretemediator.html#oneventexists',
@@ -702,7 +686,7 @@ typedoc.search.data = {
       parent: '"implementations/ConcreteMediator".ConcreteMediator'
     },
     {
-      id: 87,
+      id: 85,
       kind: 2048,
       name: 'emitEventExists',
       url: 'classes/_implementations_concretemediator_.concretemediator.html#emiteventexists',
@@ -710,7 +694,7 @@ typedoc.search.data = {
       parent: '"implementations/ConcreteMediator".ConcreteMediator'
     },
     {
-      id: 88,
+      id: 86,
       kind: 2048,
       name: 'register',
       url: 'classes/_implementations_concretemediator_.concretemediator.html#register',
@@ -718,7 +702,7 @@ typedoc.search.data = {
       parent: '"implementations/ConcreteMediator".ConcreteMediator'
     },
     {
-      id: 89,
+      id: 87,
       kind: 2048,
       name: 'checkColleagueExists',
       url: 'classes/_implementations_concretemediator_.concretemediator.html#checkcolleagueexists',
@@ -726,7 +710,7 @@ typedoc.search.data = {
       parent: '"implementations/ConcreteMediator".ConcreteMediator'
     },
     {
-      id: 90,
+      id: 88,
       kind: 2048,
       name: 'on',
       url: 'classes/_implementations_concretemediator_.concretemediator.html#on',
@@ -734,7 +718,7 @@ typedoc.search.data = {
       parent: '"implementations/ConcreteMediator".ConcreteMediator'
     },
     {
-      id: 91,
+      id: 89,
       kind: 2048,
       name: 'emitAsync',
       url: 'classes/_implementations_concretemediator_.concretemediator.html#emitasync',
@@ -742,7 +726,7 @@ typedoc.search.data = {
       parent: '"implementations/ConcreteMediator".ConcreteMediator'
     },
     {
-      id: 92,
+      id: 90,
       kind: 2048,
       name: 'emit',
       url: 'classes/_implementations_concretemediator_.concretemediator.html#emit',
@@ -750,14 +734,14 @@ typedoc.search.data = {
       parent: '"implementations/ConcreteMediator".ConcreteMediator'
     },
     {
-      id: 93,
+      id: 91,
       kind: 1,
       name: '"utils/randomString"',
       url: 'modules/_utils_randomstring_.html',
       classes: 'tsd-kind-external-module'
     },
     {
-      id: 94,
+      id: 92,
       kind: 64,
       name: 'randomString',
       url: 'modules/_utils_randomstring_.html#randomstring',

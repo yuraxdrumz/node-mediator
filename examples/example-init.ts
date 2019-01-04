@@ -1,75 +1,44 @@
-import { NodeMediator, Colleague, RelationsMap } from '../dist'
+import { NodeMediator } from '../dist'
+import relations from './relations'
+import Tester from './Tester'
+import Logger from './Logger'
+import Uploader from './Uploader'
 
-class Tester extends Colleague {
-  test() {
-    console.log('test emitted!')
-  }
-}
+class Main {
+  async run() {
+    // our mediator is a singleton, first time we call .getInstance with our relations map to initialize the mediator
+    const mediator = NodeMediator.getInstance(relations)
+    /*
+      subsequent calls to getInstance will ignore any params and return our mediator singleton
+      NodeMediator.getInstance() -> mediator
+    */
 
-class Logger extends Colleague {
-  log(...args) {
-    console.log('logger', ...args)
-  }
-}
+    // we call our extended Colleagues with their name and we pass the mediator singleton to them
+    const tester = new Tester('tester', mediator)
+    const logger = new Logger('logger', mediator)
+    const uploader = new Uploader('uploader', mediator)
 
-class Main extends NodeMediator {
-  constructor(relations: RelationsMap) {
-    super(relations)
-  }
-  run() {
-    // add the components
-    let tester = new Tester('tester', this.mediator)
-    let logger = new Logger('logger', this.mediator)
-
-    // register them. If you want to test something without a specific component just comment it out, otherwise you have to register the compoennt to use it.
+    // register the extended Colleagues.
     tester.register()
     logger.register()
+    uploader.register()
 
-    // defined events. Only events defined in relationsMap will be allowed!
-    logger.on('**', logger.log)
-    tester.on('tester::test', tester.test)
+    // define events. Only events defined in relationsMap will be allowed!
+    logger.on('log', logger.log)
+    tester.on('test', tester.test)
+    uploader.on('upload', uploader.upload)
 
     // example emit
-    setTimeout(() => {
-      tester.emit('tester::test')
-    }, 3000)
+    tester.emit('test')
+    /*
+      we can also call .emitAsync. If you have a lot of async operations 
+      but you still want them decoupled, you can use .emitAsync, 
+      .emitAsync uses promise.all to resolve all listeners promises and return all values.
+     */
+
+    // we defined our tester and uplaoder to allow firing upload
+    const uploaded = await uploader.emitAsync('upload', 'some data for upload...')
+    console.log(uploaded)
   }
 }
-
-/*
-here is the relationsMap, we will define allowed on and emit events
-if you want to disable an event, change it to false. Events .on support wildcards and seperates events by delimiter ::
-if you have a component named `uploader` and you want to add a start event to it when it is called and emit a finish event when its done, do this:
-const exampleRelations: RelationsMap = {
-    uploader: {
-        on: {'uploader::start': true},
-        emit: {'uploader::finish': true}
-    },
-}
-
-The reason you have to give full namespaces is because all components can talk to each other if you defined so in you map, for example:
-const exampleRelations: RelationsMap = {
-    uploader: {
-        on: {'uploader::start': true},
-        emit: {'uploader::finish': true}
-    },
-    // this will also fire on upload start event and do its thing.
-    scanner: {
-        on: {'uploader::start': true},
-        emit: {}
-    }
-}
-
- */
-const myRelations: RelationsMap = {
-  tester: {
-    on: { 'tester::test': true },
-    emit: { 'tester::test': true }
-  },
-  logger: {
-    on: { '**': true },
-    emit: {}
-  }
-}
-
-new Main(myRelations).run()
+new Main().run()

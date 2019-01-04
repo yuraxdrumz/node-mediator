@@ -4,34 +4,33 @@ import Emitter from '../interfaces/Emitter'
 import Colleague from '../abstracts/Colleague'
 import { ColleagueMap } from '../types/Colleague'
 import RelationsMap from '../types/Relations'
-// an instance of a mediator which accepts an emitter interface implementor
-export default class ConcreteMediator implements Mediator {
-  emitter: Emitter
-  relations: RelationsMap
-  colleagues: ColleagueMap = {}
+
+// an implementation of the Mediator interface, it controls the colleagues and events emitted and registered.
+class ConcreteMediator implements Mediator {
+  private emitter: Emitter
+  private relations: RelationsMap
+  private colleagues: ColleagueMap = {}
   constructor(relations: RelationsMap, emitter: Emitter) {
     this.emitter = emitter
     this.relations = relations
   }
 
-  onEventExists(colleague: Colleague, event: string) {
+  private eventExists(colleague: Colleague, event: string, prop: string) {
     return !!(
       this.relations &&
       this.relations[colleague.name] &&
-      this.relations[colleague.name].on &&
-      this.relations[colleague.name].on[event]
+      this.relations[colleague.name][prop] &&
+      this.relations[colleague.name][prop][event]
     )
+  }
+  onEventExists(colleague: Colleague, event: string) {
+    return this.eventExists(colleague, event, 'on')
   }
   emitEventExists(colleague: Colleague, event: string) {
-    return !!(
-      this.relations &&
-      this.relations[colleague.name] &&
-      this.relations[colleague.name].emit &&
-      this.relations[colleague.name].emit[event]
-    )
+    return this.eventExists(colleague, event, 'emit')
   }
   register(colleague: Colleague) {
-    if (!this.colleagues[colleague.name]) {
+    if (!this.checkColleagueExists(colleague)) {
       this.colleagues[colleague.name] = colleague
     } else {
       throw new Error(`Colleague ${colleague.name} already exists!`)
@@ -66,7 +65,7 @@ export default class ConcreteMediator implements Mediator {
       return this.emitter.emitAsync(event, ...args)
     }
   }
-  emit(colleague: Colleague, event: string, ...args: any[]): boolean {
+  emit(colleague: Colleague, event: string, ...args: any[]) {
     if (!this.checkColleagueExists(colleague)) {
       throw new Error(`Colleague with name ${colleague.name} was not registered...`)
     } else if (!this.onEventExists(colleague, event)) {
@@ -80,3 +79,5 @@ export default class ConcreteMediator implements Mediator {
     }
   }
 }
+
+export default ConcreteMediator
