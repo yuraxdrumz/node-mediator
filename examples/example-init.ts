@@ -6,11 +6,10 @@ import Uploader from './Uploader'
 
 class Main {
   async run() {
-    // out mediator is a singleton, first time we call .initialize with our relations map
-    const mediator = NodeMediator.initialize(relations)
+    // our mediator is a singleton, first time we call .getInstance with our relations map to initialize the mediator
+    const mediator = NodeMediator.getInstance(relations)
     /*
-      these will return the same instance
-      NodeMediator.initialize() -> mediator
+      subsequent calls to getInstance will ignore any params and return our mediator singleton
       NodeMediator.getInstance() -> mediator
     */
 
@@ -24,7 +23,7 @@ class Main {
     logger.register()
     uploader.register()
 
-    // defined events. Only events defined in relationsMap will be allowed!
+    // define events. Only events defined in relationsMap will be allowed!
     logger.on('log', logger.log)
     tester.on('test', tester.test)
     uploader.on('upload', uploader.upload)

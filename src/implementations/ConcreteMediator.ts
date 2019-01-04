@@ -7,33 +7,30 @@ import RelationsMap from '../types/Relations'
 
 // an implementation of the Mediator interface, it controls the colleagues and events emitted and registered.
 class ConcreteMediator implements Mediator {
-  emitter: Emitter
-  relations: RelationsMap
-  colleagues: ColleagueMap
-  constructor(relations: RelationsMap, colleagues: ColleagueMap, emitter: Emitter) {
+  private emitter: Emitter
+  private relations: RelationsMap
+  private colleagues: ColleagueMap = {}
+  constructor(relations: RelationsMap, emitter: Emitter) {
     this.emitter = emitter
     this.relations = relations
-    this.colleagues = colleagues
   }
 
-  onEventExists(colleague: Colleague, event: string) {
+  private eventExists(colleague: Colleague, event: string, prop: string) {
     return !!(
       this.relations &&
       this.relations[colleague.name] &&
-      this.relations[colleague.name].on &&
-      this.relations[colleague.name].on[event]
+      this.relations[colleague.name][prop] &&
+      this.relations[colleague.name][prop][event]
     )
+  }
+  onEventExists(colleague: Colleague, event: string) {
+    return this.eventExists(colleague, event, 'on')
   }
   emitEventExists(colleague: Colleague, event: string) {
-    return !!(
-      this.relations &&
-      this.relations[colleague.name] &&
-      this.relations[colleague.name].emit &&
-      this.relations[colleague.name].emit[event]
-    )
+    return this.eventExists(colleague, event, 'emit')
   }
   register(colleague: Colleague) {
-    if (!this.colleagues[colleague.name]) {
+    if (!this.checkColleagueExists(colleague)) {
       this.colleagues[colleague.name] = colleague
     } else {
       throw new Error(`Colleague ${colleague.name} already exists!`)

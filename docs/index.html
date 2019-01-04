@@ -67,101 +67,117 @@
               node-mediator implements the mediator design pattern with events. It supports creating
               decoupled components(called colleagues) which all interact through one
               component(called mediator) through events. If you have large projects with a lot of
-              dependencies between them, this is the library for you.
+              dependencies between components, this is the library for you.
             </p>
             <p>Why should you use this library?</p>
             <ul>
               <li>
-                When you have to many components communicating with one another, using a mediator
-                with events will make your development times quicker and building new fetures
-                easier.
+                When you have many components communicating with one another, using a mediator with
+                events will make your development times quicker and building new fetures easier and
+                faster as everything is decoupled.
               </li>
               <li>
                 Easier to follow the S.O.L.I.D principles as you have fewer intercomponent
-                dependencies and a better view of the hierarchy of your components
+                dependencies and a better view of the hierarchy of your components.
+              </li>
+              <li>Simpler to test your components.</li>
+              <li>Ensures strictness between inter-component communication.</li>
+              <li>
+                Uses
+                <a href="https://github.com/EventEmitter2/EventEmitter2">eventemitter2</a> library
+                by default(it is overridable if you implement the Emitter interface and pass it as a
+                2nd argument to the mediator initialization)
               </li>
             </ul>
             <h3 id="installation">Installation</h3>
-            <p>Install the dependencies</p>
             <pre><code class="language-sh">npm install node-mediator -S
 or
 yarn add node-mediator</code></pre>
-            <h3 id="usage">Usage</h3>
-            <pre><code class="language-js"><span class="hljs-keyword">import</span> { NodeMediator, Colleague, RelationsMap } <span class="hljs-keyword">from</span> <span class="hljs-string">'./dist'</span>
-
-<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Tester</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Colleague</span> </span>{
-  test() {
-    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'test emitted!'</span>)
+            <h3 id="examples">Examples</h3>
+            <p>
+              you can find an example of usage in the examples folder found
+              <a href="https://github.com/yuraxdrumz/node-mediator/tree/master/examples">here</a>
+            </p>
+            <h2 id="relations-ts">relations.ts</h2>
+            <p>used by the mediator to restrict inter-component commumnication</p>
+            <pre><code class="language-ts"><span class="hljs-keyword">import</span> { RelationsMap } <span class="hljs-keyword">from</span> <span class="hljs-string">'node-mediator'</span>
+<span class="hljs-comment">// tester, uploader and logger are our class that extended the Colleague abstract class</span>
+<span class="hljs-comment">// each colleague implementation has on and emit objects which accept strings of events names as keys and booleans as values.</span>
+<span class="hljs-comment">// in our case it means that tester is allowed to fire a test event and receive a test event, etc.</span>
+<span class="hljs-keyword">const</span> relations: RelationsMap = {
+  tester: {
+    on: { test: <span class="hljs-literal">true</span> },
+    emit: { test: <span class="hljs-literal">true</span> }
+  },
+  uploader: {
+    on: { upload: <span class="hljs-literal">true</span> },
+    emit: { upload: <span class="hljs-literal">true</span> }
+  },
+  logger: {
+    on: { log: <span class="hljs-literal">true</span> },
+    emit: { upload: <span class="hljs-literal">true</span> }
   }
 }
 
-<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Logger</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Colleague</span> </span>{
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> relations</code></pre>
+            <h3 id="logger-ts">Logger.ts</h3>
+            <pre><code class="language-ts"><span class="hljs-keyword">import</span> { Colleague } <span class="hljs-keyword">from</span> <span class="hljs-string">'node-mediator'</span>
+<span class="hljs-comment">// our logger extends Colleague, therefore has .on, .emit, .emitAsync and .register on its prototype.</span>
+<span class="hljs-comment">// we define our methods here and we will register them later. If you want to emit an event to some other component you simply use the this.emit or this.emitAsync if you need to await the answer.</span>
+<span class="hljs-keyword">class</span> Logger <span class="hljs-keyword">extends</span> Colleague {
   log(...args) {
-    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'logger'</span>, ...args)
+    <span class="hljs-comment">// our emit will only happen if it allowed in our relations map!</span>
+    <span class="hljs-keyword">this</span>.emit(<span class="hljs-string">'upload'</span>, {someArumentToUpload: <span class="hljs-literal">true</span>})
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'logger: '</span>, ...args)
   }
 }
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> Logger
+</code></pre>
+            <h3 id="main-ts">Main.ts</h3>
+            <pre><code class="language-ts"><span class="hljs-keyword">import</span> { NodeMediator } <span class="hljs-keyword">from</span> <span class="hljs-string">'node-mediator'</span>
+<span class="hljs-keyword">import</span> relations <span class="hljs-keyword">from</span> <span class="hljs-string">'./relations'</span>
+<span class="hljs-keyword">import</span> Tester <span class="hljs-keyword">from</span> <span class="hljs-string">'./Tester'</span>
+<span class="hljs-keyword">import</span> Logger <span class="hljs-keyword">from</span> <span class="hljs-string">'./Logger'</span>
+<span class="hljs-keyword">import</span> Uploader <span class="hljs-keyword">from</span> <span class="hljs-string">'./Uploader'</span>
 
-<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Main</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">NodeMediator</span> </span>{
-  <span class="hljs-keyword">constructor</span>(relations: RelationsMap) {
-    <span class="hljs-keyword">super</span>(relations)
-  }
-  run() {
-    <span class="hljs-comment">// add the components</span>
-    <span class="hljs-keyword">let</span> tester = <span class="hljs-keyword">new</span> Tester(<span class="hljs-string">'tester'</span>, <span class="hljs-keyword">this</span>.mediator)
-    <span class="hljs-keyword">let</span> logger = <span class="hljs-keyword">new</span> Logger(<span class="hljs-string">'logger'</span>, <span class="hljs-keyword">this</span>.mediator)
+<span class="hljs-keyword">class</span> Main {
+  <span class="hljs-keyword">async</span> run() {
+    <span class="hljs-comment">// our mediator is a singleton, first time we call .getInstance with our relations map to initialize the mediator</span>
+    <span class="hljs-keyword">const</span> mediator = NodeMediator.getInstance(relations)
+    <span class="hljs-comment">/*
+      subsequent calls to getInstance will ignore any params and return our mediator singleton
+      NodeMediator.getInstance() -&gt; mediator
+    */</span>
 
-    <span class="hljs-comment">// register them. If you want to test something without a specific component just comment it out, otherwise you have to register the compoennt to use it.</span>
+    <span class="hljs-comment">// we call our extended Colleagues with their name and we pass the mediator singleton to them</span>
+    <span class="hljs-keyword">const</span> tester = <span class="hljs-keyword">new</span> Tester(<span class="hljs-string">'tester'</span>, mediator)
+    <span class="hljs-keyword">const</span> logger = <span class="hljs-keyword">new</span> Logger(<span class="hljs-string">'logger'</span>, mediator)
+    <span class="hljs-keyword">const</span> uploader = <span class="hljs-keyword">new</span> Uploader(<span class="hljs-string">'uploader'</span>, mediator)
+
+    <span class="hljs-comment">// register the extended Colleagues.</span>
     tester.register()
     logger.register()
+    uploader.register()
 
-    <span class="hljs-comment">// defined events. Only events defined in relationsMap will be allowed!</span>
-    logger.on(<span class="hljs-string">'**'</span>, logger.log)
-    tester.on(<span class="hljs-string">'tester::test'</span>, tester.test)
+    <span class="hljs-comment">// define events. Only events defined in relationsMap will be allowed!</span>
+    logger.on(<span class="hljs-string">'log'</span>, logger.log)
+    tester.on(<span class="hljs-string">'test'</span>, tester.test)
+    uploader.on(<span class="hljs-string">'upload'</span>, uploader.upload)
 
     <span class="hljs-comment">// example emit</span>
-    setTimeout(<span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> {
-      tester.emit(<span class="hljs-string">'tester::test'</span>)
-    }, <span class="hljs-number">3000</span>)
+    tester.emit(<span class="hljs-string">'test'</span>)
+    <span class="hljs-comment">/*
+      we can also call .emitAsync. If you have a lot of async operations 
+      but you still want them decoupled, you can use .emitAsync, 
+      .emitAsync uses promise.all to resolve all listeners promises and return all values.
+     */</span>
+
+    <span class="hljs-comment">// we defined our tester and uplaoder to allow firing upload</span>
+    <span class="hljs-keyword">const</span> uploaded = <span class="hljs-keyword">await</span> uploader.emitAsync(<span class="hljs-string">'upload'</span>, <span class="hljs-string">'some data for upload...'</span>)
+    <span class="hljs-built_in">console</span>.log(uploaded)
   }
 }
-
-<span class="hljs-comment">/*
-here is the relationsMap, we will define allowed on and emit events
-if you want to disable an event, change it to false. Events .on support wildcards and seperates events by delimiter ::
-if you have a component named `uploader` and you want to add a start event to it when it is called and emit a finish event when its done, do this:
-const exampleRelations: RelationsMap = {
-    uploader: {
-        on: {'uploader::start': true},
-        emit: {'uploader::finish': true}
-    },
-}
-
-The reason you have to give full namespaces is because all components can talk to each other if you defined so in you map, for example:
-const exampleRelations: RelationsMap = {
-    uploader: {
-        on: {'uploader::start': true},
-        emit: {'uploader::finish': true}
-    },
-    // this will also fire on upload start event and do its thing.
-    scanner: {
-        on: {'uploader::start': true},
-        emit: {}
-    }
-}
-
- */</span>
-<span class="hljs-keyword">const</span> myRelations: RelationsMap = {
-  <span class="hljs-attr">tester</span>: {
-    <span class="hljs-attr">on</span>: { <span class="hljs-string">'tester::test'</span>: <span class="hljs-literal">true</span> },
-    <span class="hljs-attr">emit</span>: { <span class="hljs-string">'tester::test'</span>: <span class="hljs-literal">true</span> }
-  },
-  <span class="hljs-attr">logger</span>: {
-    <span class="hljs-attr">on</span>: { <span class="hljs-string">'**'</span>: <span class="hljs-literal">true</span> },
-    <span class="hljs-attr">emit</span>: {}
-  }
-}
-
-<span class="hljs-keyword">new</span> Main(myRelations).run()</code></pre>
+<span class="hljs-keyword">new</span> Main().run()</code></pre>
             <h2 id="license">License</h2>
             <p>MIT</p>
           </div>

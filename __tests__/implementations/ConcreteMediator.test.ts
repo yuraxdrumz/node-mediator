@@ -9,7 +9,7 @@ describe('Mediator suite', () => {
   let emitter: Emitter
   beforeEach(() => {
     emitter = new ConcreteEmitter({ wildcard: true })
-    instance = new ConcreteMediator(relations, {}, emitter)
+    instance = new ConcreteMediator(relations, emitter)
   })
   it('should create new instance of a mediator', (): void => {
     expect.assertions(1)

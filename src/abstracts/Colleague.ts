@@ -10,7 +10,7 @@ abstract class Colleague {
     this.name = name
   }
   emit(event: string, ...args: any[]) {
-    this.mediator.emit(this, event, ...args)
+    return this.mediator.emit(this, event, ...args)
   }
   emitAsync(event: string, ...args: any[]): Promise<any> {
     return this.mediator.emitAsync(this, event, ...args)
@@ -18,9 +18,8 @@ abstract class Colleague {
   on(event: string, cb: Types.Listener): Promise<any> | void {
     return this.mediator.on(this, event, cb)
   }
-  register(): Colleague {
+  register() {
     this.mediator.register(this)
-    return this
   }
 }
 

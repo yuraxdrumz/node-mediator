@@ -13,7 +13,7 @@ describe('Colleague suite', () => {
   let col: Colleague
   beforeEach(() => {
     emitter = new ConcreteEmitter({ wildcard: true })
-    instance = new ConcreteMediator(relations, {}, emitter)
+    instance = new ConcreteMediator(relations, emitter)
     col = new ConcreteColleague(randomString(), instance)
   })
   it('should create new instance of a colleague', (): void => {
