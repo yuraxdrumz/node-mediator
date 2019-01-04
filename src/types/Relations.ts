@@ -1,9 +1,9 @@
-import { EventBoolean } from './EventBoolean'
+import { RelationsEventMap } from './RelationsEventMap'
 
 type RelationsMap = {
   [key: string]: {
-    on: EventBoolean
-    emit: EventBoolean
+    on: RelationsEventMap
+    emit: RelationsEventMap
   }
 }
 

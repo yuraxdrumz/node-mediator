@@ -1,12 +1,12 @@
 {
   "name": "node-mediator",
-  "version": "1.0.2",
+  "version": "2.0.0",
   "description": "A Node.js event based mediator design pattern written in typescript with eventemitter2. It Allows building seperate, decoupled, more testable modules in a breeze.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
     "test": "jest",
-    "start:example": "ts-node --files ./examples/example-init.ts",
+    "start:example": "ts-node ./examples/example-init.ts",
     "start": "ts-node --files index.ts",
     "dist": "rimraf ./dist && tsc --p tsconfig.json",
     "prettier": "prettier --write **/*.ts && prettier --write __tests__/**/*.ts",

@@ -5,8 +5,8 @@ import Colleague from '../abstracts/Colleague'
 import { ColleagueMap } from '../types/Colleague'
 import RelationsMap from '../types/Relations'
 
-// an instance of a mediator which accepts an emitter interface implementor
-export default class ConcreteMediator implements Mediator {
+// an implementation of the Mediator interface, it controls the colleagues and events emitted and registered.
+class ConcreteMediator implements Mediator {
   emitter: Emitter
   relations: RelationsMap
   colleagues: ColleagueMap
@@ -68,7 +68,7 @@ export default class ConcreteMediator implements Mediator {
       return this.emitter.emitAsync(event, ...args)
     }
   }
-  emit(colleague: Colleague, event: string, ...args: any[]): boolean {
+  emit(colleague: Colleague, event: string, ...args: any[]) {
     if (!this.checkColleagueExists(colleague)) {
       throw new Error(`Colleague with name ${colleague.name} was not registered...`)
     } else if (!this.onEventExists(colleague, event)) {
@@ -82,3 +82,5 @@ export default class ConcreteMediator implements Mediator {
     }
   }
 }
+
+export default ConcreteMediator
