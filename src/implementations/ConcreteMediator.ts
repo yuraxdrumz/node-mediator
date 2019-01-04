@@ -4,14 +4,16 @@ import Emitter from '../interfaces/Emitter'
 import Colleague from '../abstracts/Colleague'
 import { ColleagueMap } from '../types/Colleague'
 import RelationsMap from '../types/Relations'
+
 // an instance of a mediator which accepts an emitter interface implementor
 export default class ConcreteMediator implements Mediator {
   emitter: Emitter
   relations: RelationsMap
-  colleagues: ColleagueMap = {}
-  constructor(relations: RelationsMap, emitter: Emitter) {
+  colleagues: ColleagueMap
+  constructor(relations: RelationsMap, colleagues: ColleagueMap, emitter: Emitter) {
     this.emitter = emitter
     this.relations = relations
+    this.colleagues = colleagues
   }
 
   onEventExists(colleague: Colleague, event: string) {

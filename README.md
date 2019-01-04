@@ -4,7 +4,7 @@ node-mediator implements the mediator design pattern with events. It supports cr
 
 Why should you use this library?
 
-- Decoupled components that interact with events which leads to more testable and stable components
+- When you have to many components communicating with one another, using a mediator with events will make your development times quicker and building new fetures easier.
 - Easier to follow the S.O.L.I.D principles as you have fewer intercomponent dependencies and a better view of the hierarchy of your components
 
 ### Installation
