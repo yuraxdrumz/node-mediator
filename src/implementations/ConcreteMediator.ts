@@ -55,7 +55,7 @@ class ConcreteMediator implements Mediator {
   emitAsync(colleague: Colleague, event: string, ...args: any[]): Promise<any> {
     if (!this.checkColleagueExists(colleague)) {
       throw new Error(`Colleague with name ${colleague.name} was not registered...`)
-    } else if (!this.onEventExists(colleague, event)) {
+    } else if (!this.emitEventExists(colleague, event)) {
       throw new Error(
         `.emitAsync event of type: ${event} for Colleague: ${
           colleague.name
@@ -68,7 +68,7 @@ class ConcreteMediator implements Mediator {
   emit(colleague: Colleague, event: string, ...args: any[]) {
     if (!this.checkColleagueExists(colleague)) {
       throw new Error(`Colleague with name ${colleague.name} was not registered...`)
-    } else if (!this.onEventExists(colleague, event)) {
+    } else if (!this.emitEventExists(colleague, event)) {
       throw new Error(
         `.emit event of type: ${event} for Colleague: ${
           colleague.name

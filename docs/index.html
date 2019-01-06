@@ -127,12 +127,11 @@ yarn add node-mediator</code></pre>
 <span class="hljs-keyword">class</span> Logger <span class="hljs-keyword">extends</span> Colleague {
   log(...args) {
     <span class="hljs-comment">// our emit will only happen if it allowed in our relations map!</span>
-    <span class="hljs-keyword">this</span>.emit(<span class="hljs-string">'upload'</span>, {someArumentToUpload: <span class="hljs-literal">true</span>})
+    <span class="hljs-keyword">this</span>.emit(<span class="hljs-string">'upload'</span>, { someArumentToUpload: <span class="hljs-literal">true</span> })
     <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'logger: '</span>, ...args)
   }
 }
-<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> Logger
-</code></pre>
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> Logger</code></pre>
             <h3 id="main-ts">Main.ts</h3>
             <pre><code class="language-ts"><span class="hljs-keyword">import</span> { NodeMediator } <span class="hljs-keyword">from</span> <span class="hljs-string">'node-mediator'</span>
 <span class="hljs-keyword">import</span> relations <span class="hljs-keyword">from</span> <span class="hljs-string">'./relations'</span>
